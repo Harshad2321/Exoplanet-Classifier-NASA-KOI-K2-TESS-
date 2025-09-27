@@ -94,10 +94,12 @@ class ExoplanetPredictor:
         """
         feature_descriptions = {
             'period': 'Orbital period in days (e.g., 365.25 for Earth-like)',
-            'radius': 'Planet radius in Earth radii (e.g., 1.0 for Earth-like)',
+            'radius': 'Planet radius in Earth radii (e.g., 1.0 for Earth-like)',  
             'temperature': 'Equilibrium temperature in Kelvin (e.g., 288 for Earth-like)',
             'insolation': 'Insolation flux relative to Earth (e.g., 1.0 for Earth-like)',
-            'a_over_rstar': 'Semi-major axis to stellar radius ratio (e.g., 215 for Earth-Sun)',
+            'depth': 'Transit depth in parts per million (e.g., 8400 for Earth-Sun)',
+            'ra': 'Right ascension in degrees (0-360)', 
+            'dec': 'Declination in degrees (-90 to 90)',
             'duration': 'Transit duration in hours (e.g., 13 for Earth-Sun)',
             'depth': 'Transit depth in parts per million (e.g., 84 for Earth-Sun)',
             'impact': 'Impact parameter (0 = center, 1 = edge)',
@@ -135,52 +137,36 @@ class ExoplanetPredictor:
                 'radius': 1.0,
                 'temperature': 288.0,
                 'insolation': 1.0,
-                'a_over_rstar': 215.0,
-                'duration': 13.0,
-                'depth': 84.0,
-                'impact': 0.5,
+                'depth': 8400.0,  # Transit depth for Earth-Sun system
                 'ra': 180.0,
-                'dec': 0.0,
-                'magnitude': 10.0
+                'dec': 0.0
             },
             'hot_jupiter': {
                 'period': 3.5,
                 'radius': 11.0,
                 'temperature': 1500.0,
                 'insolation': 1000.0,
-                'a_over_rstar': 5.0,
-                'duration': 3.0,
                 'depth': 12000.0,
-                'impact': 0.2,
                 'ra': 45.0,
-                'dec': 30.0,
-                'magnitude': 12.0
+                'dec': 30.0
             },
             'super_earth': {
                 'period': 50.0,
                 'radius': 1.8,
                 'temperature': 350.0,
                 'insolation': 5.0,
-                'a_over_rstar': 25.0,
-                'duration': 8.0,
                 'depth': 324.0,
-                'impact': 0.3,
                 'ra': 270.0,
-                'dec': -15.0,
-                'magnitude': 11.5
+                'dec': -15.0
             },
             'false_positive': {
                 'period': 2.1,
                 'radius': 0.5,
                 'temperature': 2000.0,
                 'insolation': 2000.0,
-                'a_over_rstar': 3.0,
-                'duration': 1.5,
                 'depth': 25.0,
-                'impact': 0.9,
                 'ra': 90.0,
-                'dec': 60.0,
-                'magnitude': 15.0
+                'dec': 60.0
             }
         }
         
@@ -196,44 +182,22 @@ class ExoplanetPredictor:
         Returns:
             Preprocessed feature DataFrame
         """
-        # Convert to DataFrame
-        df = pd.DataFrame([features])
+        # Define the exact features expected by the model
+        expected_features = ['period', 'radius', 'temperature', 'insolation', 'depth', 'ra', 'dec']
         
-        # Engineer derived features
-        if 'period' in df.columns and 'radius' in df.columns:
-            df['density_proxy'] = df['radius'] ** 3 / df['period'] ** 2
+        # Create DataFrame with only the expected features
+        processed_features = {}
+        for feature in expected_features:
+            processed_features[feature] = features.get(feature, 0.0)
         
-        if 'temperature' in df.columns and 'insolation' in df.columns:
-            temp_mask = (df['temperature'] >= 200) & (df['temperature'] <= 400)
-            insol_mask = (df['insolation'] >= 0.5) & (df['insolation'] <= 2.0)
-            df['habitability_proxy'] = (temp_mask & insol_mask).astype(int)
-        
-        if 'duration' in df.columns and 'period' in df.columns:
-            df['duty_cycle'] = df['duration'] / df['period']
-        
-        # Handle missing values with median (simple approach)
-        numeric_cols = df.select_dtypes(include=[np.number]).columns
-        for col in numeric_cols:
-            if df[col].isna().any():
-                df[col].fillna(df[col].median(), inplace=True)
+        df = pd.DataFrame([processed_features])
         
         # Scale features if preprocessor is available
-        if self.preprocessor and hasattr(self.preprocessor, 'scaler'):
+        if self.preprocessor is not None:
             try:
-                # Get expected features from the model
-                expected_features = self.feature_names if self.feature_names else df.columns
-                
-                # Align features
-                for feature in expected_features:
-                    if feature not in df.columns:
-                        df[feature] = 0.0  # Default value for missing features
-                
-                # Select and order features
-                df = df[expected_features]
-                
-                # Scale features
+                # Apply scaling using the saved scaler
                 df_scaled = df.copy()
-                df_scaled[numeric_cols] = self.preprocessor.scaler.transform(df[numeric_cols])
+                df_scaled[expected_features] = self.preprocessor.transform(df[expected_features])
                 return df_scaled
                 
             except Exception as e:

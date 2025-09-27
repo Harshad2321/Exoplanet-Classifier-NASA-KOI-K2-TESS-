@@ -42,7 +42,7 @@ class ExoplanetDataPreprocessor:
         # Dataset configuration
         self.dataset_configs = {
             'kepler': {
-                'file': 'kepler.csv',
+                'file': 'raw/koi.csv',
                 'target_col': 'koi_disposition',
                 'id_col': 'kepid',
                 'key_features': [
@@ -52,7 +52,7 @@ class ExoplanetDataPreprocessor:
                 ]
             },
             'k2': {
-                'file': 'k2.csv', 
+                'file': 'raw/k2.csv', 
                 'target_col': 'disposition',
                 'id_col': 'epic_name',
                 'key_features': [
@@ -61,7 +61,7 @@ class ExoplanetDataPreprocessor:
                 ]
             },
             'tess': {
-                'file': 'tess.csv',
+                'file': 'raw/toi.csv',
                 'target_col': 'tfopwg_disp',  
                 'id_col': 'tic_id',
                 'key_features': [
@@ -111,7 +111,7 @@ class ExoplanetDataPreprocessor:
             
             try:
                 if file_path.exists():
-                    df = pd.read_csv(file_path)
+                    df = pd.read_csv(file_path, comment='#', low_memory=False)
                     logger.info(f"✅ Loaded {name.upper()}: {len(df):,} objects, {len(df.columns)} features")
                     datasets[name] = df
                 else:
