@@ -1,49 +1,38 @@
 """
-Streamlit Web Application for NASA Exoplanet Classification
+Streamlit Web Application for NASA Space Apps Challenge 2025
+"A World Away: Hunting for Exoplanets with AI"
 
-This application provides an interactive interface for:
-- Uploading and classifying exoplanet data
-- Exploring model performance and datasets
-- Manual prediction entry
-- Model retraining capabilities
-
-Author: NASA Space Apps Challenge 2025 Team
+Interactive web interface for exoplanet classification using trained ML models.
 """
 
 import streamlit as st
 import pandas as pd
 import numpy as np
-from pathlib import Path
-import joblib
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import matplotlib.pyplot as plt
-import seaborn as sns
-from typing import Dict, List, Any, Optional
-import warnings
+import json
+import io
+from pathlib import Path
 import sys
-import os
+import warnings
 
-# Add src directory to path for imports
-sys.path.append(str(Path(__file__).parent / 'src'))
-
-# Import custom modules
-try:
-    from src.data_loader import ExoplanetDataLoader
-    from src.preprocessing import ExoplanetPreprocessor
-    from src.train_model import ExoplanetModelTrainer
-    from src.evaluate_model import ExoplanetModelEvaluator
-    from src.utils import validate_dataframe, print_dataset_summary
-except ImportError:
-    st.error("Failed to import custom modules. Make sure all dependencies are installed.")
+# Add src to path for imports
+sys.path.append(str(Path(__file__).parent / "src"))
 
 warnings.filterwarnings('ignore')
 
-# Configure Streamlit page
+# Import our prediction module
+try:
+    from src.predict import ExoplanetPredictor
+    PREDICTOR_AVAILABLE = True
+except ImportError:
+    PREDICTOR_AVAILABLE = False
+
+# Page configuration
 st.set_page_config(
-    page_title="🚀 Exoplanet Classifier - NASA Space Apps 2025",
-    page_icon="🌍",
+    page_title="🌌 Exoplanet Classifier - NASA Space Apps 2025",
+    page_icon="🪐",
     layout="wide",
     initial_sidebar_state="expanded"
 )

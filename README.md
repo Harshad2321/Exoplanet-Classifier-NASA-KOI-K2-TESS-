@@ -1,10 +1,12 @@
-# 🚀 Exoplanet Classifier - NASA Space Apps Challenge 2025
+# 🌌 Exoplanet Classifier - NASA Space Apps Challenge 2025
 
-## "A World Away: Hunting for Exoplanets with AI"
+> **"A World Away: Hunting for Exoplanets with AI"**
 
-**Team Project for NASA Space Apps Challenge 2025**
+An AI-powered machine learning solution for automatically classifying astronomical objects as confirmed exoplanets, planet candidates, or false positives using NASA's Kepler, K2, and TESS mission data.
 
-This project develops an AI/ML classifier to automatically identify exoplanets using NASA's open datasets from the Kepler, K2, and TESS missions. Our solution combines machine learning with an interactive web interface for real-time exoplanet classification.
+![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![NASA](https://img.shields.io/badge/NASA-Space%20Apps%202025-red.svg)
 
 ---
 
