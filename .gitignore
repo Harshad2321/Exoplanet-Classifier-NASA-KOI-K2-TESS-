@@ -31,14 +31,35 @@ MANIFEST
 .ipynb_checkpoints/
 *.ipynb.tmp
 
-# Model files (can be large)
-models/*.pkl
-models/*.joblib
-models/*.h5
+# Model files (large files - using Git LFS)
+models/**/*.pkl
+models/**/*.joblib
+models/**/*.h5
+models/**/*.keras
+models/**/*.pt
+models/**/*.pth
+models/**/*.onnx
 
 # Data files (can be large - keep structure but ignore large files)
 data/processed/*.csv
 data/splits/*.csv
+data/**/*.parquet
+data/**/*.feather
+
+# Cache and temporary files
+.cache/
+*.tmp
+*_temp.py
+temp_*
+logs/*.log
+*.log
+
+# Results and reports (keep structure, selective ignore)
+results/**/*.png
+results/**/*.jpg
+results/**/*.svg
+reports/**/*.png
+reports/**/*.jpg
 
 # IDE
 .vscode/
