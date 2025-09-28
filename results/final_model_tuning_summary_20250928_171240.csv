@@ -1,0 +1,19 @@
+Stage,Model,Accuracy,Improvement_vs_Baseline
+Baseline Models,RandomForest_Initial,0.7015,0.0
+Ultimate Ensemble,WeightedEnsemble,0.6919,-0.9600000000000053
+Ultimate Ensemble,MetaEnsemble,0.6894,-1.21
+Ultimate Ensemble,ET_Diverse,0.6879,-1.3600000000000056
+Ultimate Ensemble,RF_Ultra,0.6838,-1.770000000000005
+Quick Tuning,ExtraTrees_Optimized,0.6816,-1.9900000000000029
+Quick Tuning,VotingEnsemble,0.6809,-2.0600000000000063
+Ultimate Ensemble,XGB_Precision,0.6787,-2.2800000000000042
+Ultimate Ensemble,LGB_Conservative,0.6761,-2.539999999999998
+Baseline Models,XGBoost_Initial,0.6754,-2.610000000000001
+Quick Tuning,LightGBM_Optimized,0.6743,-2.72
+Quick Tuning,XGBoost_Optimized,0.6717,-2.980000000000005
+Baseline Models,LightGBM_Initial,0.6688,-3.2700000000000062
+Quick Tuning,RandomForest_Optimized,0.6636,-3.7900000000000045
+Neural Networks,DeepDense,0.6522,-4.9300000000000015
+Neural Networks,WideNetwork,0.6467,-5.479999999999996
+Neural Networks,ResNetInspired,0.6456,-5.590000000000006
+Baseline Models,TensorFlow_Initial,0.6099,-9.160000000000002
