@@ -100,7 +100,7 @@ result = api.predict_ensemble(model_paths, data)
 #### Performance Optimizations
 - **Model Caching**: LRU cache with 3-model capacity
 - **Memory Optimization**: Efficient loading and preprocessing
-- **GPU Acceleration**: RTX 4060 optimized training
+- **Performance Optimization**: Efficient training pipeline
 - **Async Predictions**: Concurrent ensemble processing
 
 ### 🎯 NASA Space Apps Challenge Integration

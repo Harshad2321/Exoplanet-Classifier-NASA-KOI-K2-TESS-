@@ -17,7 +17,7 @@
 ##### 1. Configuration Management (`core/config.py`)
 - **✅ Centralized configuration system** with dataclass-based settings
 - **✅ Environment-specific parameters** for development/production
-- **✅ GPU detection and optimization** for RTX 4060 support
+- **✅ Performance optimization** with memory management
 - **✅ Memory management parameters** with intelligent thresholds
 - **✅ NASA dataset feature definitions** (KOI, K2, TESS)
 - **✅ Comprehensive logging framework** with rotation and levels
@@ -110,7 +110,7 @@
 1. **AI/ML Excellence**: Advanced ensemble methods achieving 69.19% accuracy
 2. **User Interface**: Professional web app for exoplanet classification
 3. **Data Processing**: Efficient handling of NASA KOI, K2, TESS datasets
-4. **Performance**: Optimized for RTX 4060 GPU with memory management
+4. **Performance**: Optimized training with memory management
 5. **Documentation**: Comprehensive system configuration and usage docs
 
 #### ✅ Technical Innovation

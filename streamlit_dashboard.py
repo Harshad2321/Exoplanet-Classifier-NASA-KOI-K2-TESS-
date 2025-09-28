@@ -649,12 +649,7 @@ class ExoplanetDashboard:
             try:
                 import tensorflow as tf
                 tf_version = tf.__version__
-                gpu_available = len(tf.config.list_physical_devices('GPU')) > 0
                 st.success(f"✅ TensorFlow {tf_version}")
-                if gpu_available:
-                    st.success("✅ GPU Available")
-                else:
-                    st.info("ℹ️ CPU Only")
             except ImportError:
                 st.warning("⚠️ TensorFlow not installed")
             
@@ -662,12 +657,7 @@ class ExoplanetDashboard:
             try:
                 import torch
                 torch_version = torch.__version__
-                cuda_available = torch.cuda.is_available()
                 st.success(f"✅ PyTorch {torch_version}")
-                if cuda_available:
-                    st.success("✅ CUDA Available")
-                else:
-                    st.info("ℹ️ CPU Only")
             except ImportError:
                 st.warning("⚠️ PyTorch not installed")
         
