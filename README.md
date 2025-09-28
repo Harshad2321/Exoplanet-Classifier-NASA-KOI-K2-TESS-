@@ -1,12 +1,50 @@
 # Advanced Exoplanet Classification System
 **NASA Space Apps Challenge 2025**
 
-> An enterprise-grade machine learning solution for classifying astronomical objects as confirmed exoplanets, planet candidates, or false positives using data from NASA's Kepler, K2, and TESS missions.
+> An enterprise-grade machine learning solution for classifying astronomical objects as confirmed exoplanets, planet candidates, or false positives using data from NASA's Kepler, K2, and TESS missions. **Now optimized for RTX 4060 GPU acceleration!**
 
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![NASA](https://img.shields.io/badge/NASA-Space%20Apps%202025-red.svg)
 ![ML](https://img.shields.io/badge/ML-Advanced%20Ensemble-orange.svg)
+![GPU](https://img.shields.io/badge/GPU-RTX%204060%20Ready-green.svg)
+
+---
+
+## 🚀 GPU Acceleration Setup (RTX 4060)
+
+This project is optimized to leverage your RTX 4060 GPU for significantly faster training and inference. Follow these steps to enable GPU acceleration:
+
+### Prerequisites
+1. **NVIDIA Drivers**: Install latest GeForce drivers (536.xx or later)
+2. **CUDA Toolkit**: Install CUDA 12.1 from [NVIDIA CUDA Downloads](https://developer.nvidia.com/cuda-downloads)
+3. **cuDNN**: Download and install cuDNN 8.9 for CUDA 12.1
+
+### GPU Setup Commands
+```bash
+# Install PyTorch with CUDA support
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Install TensorFlow with GPU support  
+pip install tensorflow[and-cuda]
+
+# Verify GPU detection
+python check_gpu.py
+```
+
+### Quick GPU Check
+Run this command to verify your RTX 4060 is detected:
+```bash
+python check_gpu.py
+```
+
+Expected output:
+```
+✅ PyTorch CUDA Available: True
+✅ PyTorch GPU: NVIDIA GeForce RTX 4060
+✅ TensorFlow GPUs Found: 1
+🚀 Your RTX 4060 is ready for accelerated ML training!
+```
 
 ---
 
