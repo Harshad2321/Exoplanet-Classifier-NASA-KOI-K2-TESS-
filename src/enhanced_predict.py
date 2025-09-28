@@ -73,15 +73,19 @@ class EnhancedExoplanetPredictor:
         
         models_loaded = 0
         
-        # Load models
-        for model_file in self.models_dir.glob("*_model.joblib"):
-            model_name = model_file.stem.replace('_model', '')
-            try:
-                self.models[model_name] = joblib.load(model_file)
-                logger.info(f"✅ Loaded {model_name} model")
-                models_loaded += 1
-            except Exception as e:
-                logger.error(f"❌ Failed to load {model_name}: {e}")
+        # Load models - support multiple naming patterns
+        model_patterns = ["*_model.joblib", "*_model.pkl", "best_model.pkl"]
+        
+        for pattern in model_patterns:
+            for model_file in self.models_dir.glob(pattern):
+                model_name = model_file.stem.replace('_model', '').replace('best_', '')
+                if model_name not in self.models:  # Avoid duplicates
+                    try:
+                        self.models[model_name] = joblib.load(model_file)
+                        logger.info(f"✅ Loaded {model_name} model")
+                        models_loaded += 1
+                    except Exception as e:
+                        logger.error(f"❌ Failed to load {model_name}: {e}")
         
         # Load scalers
         for scaler_file in self.models_dir.glob("*_scaler.joblib"):
