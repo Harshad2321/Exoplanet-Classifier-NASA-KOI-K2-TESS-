@@ -1,5 +1,0 @@
-,model,accuracy
-Baseline Models,RandomForest_Initial,0.7015
-Quick Tuning,ExtraTrees_Optimized,0.6816
-Ultimate Ensemble,WeightedEnsemble,0.6919
-Neural Networks,DeepDense,0.6522
