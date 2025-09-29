@@ -102,13 +102,18 @@ class NASAExoplanetPredictor:
                 if feature not in df.columns:
                     df[feature] = 0  # Default value for missing features
             
-            # Select and order features correctly
+            # Select and order features correctly (original 12 features for imputer)
             df = df[required_features]
             
-            # Preprocess data
-            # Handle missing values
+            # Handle missing values FIRST (imputer expects original 12 features)
             X_imputed = self.imputer.transform(df)
-            X_scaled = self.scaler.transform(X_imputed)
+            df_imputed = pd.DataFrame(X_imputed, columns=required_features, index=df.index)
+            
+            # THEN apply feature engineering (to get 17 features)
+            df_engineered = self._engineer_features(df_imputed)
+            
+            # FINALLY scale (scaler expects all 17 features)
+            X_scaled = self.scaler.transform(df_engineered)
             
             # Get model
             model = self.models.get(model_name, list(self.models.values())[0])
@@ -135,6 +140,46 @@ class NASAExoplanetPredictor:
         except Exception as e:
             st.error(f"Prediction error: {e}")
             return None
+    
+    def _engineer_features(self, X):
+        """Engineer additional features (same as training) in exact order"""
+        import numpy as np
+        
+        # Make a copy to avoid modifying original
+        X_eng = X.copy()
+        
+        # Add features in the exact same order as training
+        # 1. planet_mass_proxy
+        if 'koi_prad' in X_eng.columns:
+            X_eng['planet_mass_proxy'] = X_eng['koi_prad'] ** 2.06
+        
+        # 2. temp_ratio
+        if 'koi_teq' in X_eng.columns and 'koi_steff' in X_eng.columns:
+            X_eng['temp_ratio'] = X_eng['koi_teq'] / X_eng['koi_steff']
+        
+        # 3. orbital_velocity
+        if all(col in X_eng.columns for col in ['koi_period', 'koi_dor', 'koi_srad']):
+            X_eng['orbital_velocity'] = (2 * np.pi * X_eng['koi_dor'] * X_eng['koi_srad']) / X_eng['koi_period']
+        
+        # 4. habitable_zone
+        if 'koi_teq' in X_eng.columns:
+            X_eng['habitable_zone'] = ((X_eng['koi_teq'] >= 200) & (X_eng['koi_teq'] <= 400)).astype(int)
+        
+        # 5. transit_depth
+        if 'koi_prad' in X_eng.columns and 'koi_srad' in X_eng.columns:
+            X_eng['transit_depth'] = (X_eng['koi_prad'] / (109 * X_eng['koi_srad'])) ** 2
+        
+        # Ensure columns are in the exact training order
+        expected_columns = [
+            'koi_period', 'koi_prad', 'koi_teq', 'koi_insol', 'koi_srad', 'koi_smass',
+            'koi_steff', 'koi_sage', 'koi_dor', 'ra', 'dec', 'koi_score',
+            'planet_mass_proxy', 'temp_ratio', 'orbital_velocity', 'habitable_zone', 'transit_depth'
+        ]
+        
+        # Reorder columns to match training
+        X_eng = X_eng.reindex(columns=expected_columns, fill_value=0)
+        
+        return X_eng
 
 # Initialize predictor
 @st.cache_resource
@@ -417,12 +462,52 @@ def main():
         
         if uploaded_file:
             try:
-                df = pd.read_csv(uploaded_file)
+                # Attempt to read CSV with robust error handling
+                try:
+                    df = pd.read_csv(uploaded_file)
+                except pd.errors.ParserError as e:
+                    st.warning("⚠️ Detected malformed CSV. Attempting to repair...")
+                    uploaded_file.seek(0)  # Reset file pointer
+                    
+                    # Try reading with more flexible parameters
+                    df = pd.read_csv(
+                        uploaded_file, 
+                        on_bad_lines='skip',  # Skip problematic lines
+                        engine='python',      # Use Python engine for better error handling
+                        encoding='utf-8'      # Specify encoding
+                    )
+                    st.info(f"📝 Repaired CSV and loaded {len(df)} valid observations")
+                
+                if df.empty:
+                    st.error("❌ No valid data found in the CSV file")
+                    st.stop()
+                
                 st.success(f"✅ Loaded dataset: {len(df)} objects")
+                
+                # Validate required columns
+                required_columns = ['koi_period', 'koi_prad', 'koi_teq', 'koi_insol', 
+                                   'koi_srad', 'koi_smass', 'koi_steff', 'koi_sage', 
+                                   'koi_dor', 'ra', 'dec', 'koi_score']
+                
+                missing_cols = [col for col in required_columns if col not in df.columns]
+                
+                if missing_cols:
+                    st.warning(f"⚠️ Missing columns: {', '.join(missing_cols)}")
+                    st.info("🔧 The system will use default values for missing parameters")
                 
                 # Show data preview
                 st.markdown("#### 👁️ Data Preview")
                 st.dataframe(df.head(), use_container_width=True)
+                
+                # Show column information
+                st.markdown("#### 📋 Column Information")
+                col_info = pd.DataFrame({
+                    'Column': df.columns,
+                    'Type': df.dtypes,
+                    'Non-Null Count': df.count(),
+                    'Sample Value': [str(df[col].iloc[0]) if len(df) > 0 else 'N/A' for col in df.columns]
+                })
+                st.dataframe(col_info, use_container_width=True)
                 
                 # Batch classification
                 if st.button("🚀 Run Batch Classification", type="primary"):
@@ -432,7 +517,22 @@ def main():
                         progress_bar = st.progress(0)
                         
                         for i, (_, row) in enumerate(df.iterrows()):
-                            result = predictor.predict(row.to_dict(), selected_model)
+                            # Prepare row data with default values for missing columns
+                            row_data = {}
+                            default_values = {
+                                'koi_period': 365.25, 'koi_prad': 1.0, 'koi_teq': 288.0,
+                                'koi_insol': 1.0, 'koi_srad': 1.0, 'koi_smass': 1.0,
+                                'koi_steff': 5778.0, 'koi_sage': 4.5, 'koi_dor': 215.0,
+                                'ra': 290.0, 'dec': 42.0, 'koi_score': 0.5
+                            }
+                            
+                            for col in required_columns:
+                                if col in df.columns and pd.notna(row[col]):
+                                    row_data[col] = row[col]
+                                else:
+                                    row_data[col] = default_values.get(col, 1.0)
+                            
+                            result = predictor.predict(row_data, selected_model)
                             
                             if result:
                                 results.append({
