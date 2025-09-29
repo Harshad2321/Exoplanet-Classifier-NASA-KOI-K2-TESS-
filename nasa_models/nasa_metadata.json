@@ -1,0 +1,24 @@
+{
+  "training_date": "2025-09-29T21:48:14.154281",
+  "challenge": "NASA Space Apps Challenge 2025",
+  "feature_names": [
+    "koi_period",
+    "koi_prad",
+    "koi_teq",
+    "koi_insol",
+    "koi_srad",
+    "koi_smass",
+    "koi_steff",
+    "koi_sage",
+    "koi_dor",
+    "ra",
+    "dec",
+    "koi_score"
+  ],
+  "target_classes": [
+    "CANDIDATE",
+    "CONFIRMED",
+    "FALSE_POSITIVE"
+  ],
+  "random_state": 2025
+}

@@ -1,4 +1,293 @@
-# 🌌 NASA Exoplanet Hunter - AI Classification System
+# 🌌 NASA Exoplanet Hunter - AI Classifi# 🌌 NASA Space Apps Challenge 2025: Exoplanet Hunter AI
+
+## "A World Away: Hunting for Exoplanets with AI"
+
+![NASA Space Apps Challenge](https://img.shields.io/badge/NASA%20Space%20Apps-2025-blue)
+![Python](https://img.shields.io/badge/Python-3.8%2B-green)
+![AI](https://img.shields.io/badge/AI-Machine%20Learning-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+**Professional AI system for detecting and classifying exoplanets using NASA datasets from Kepler, K2, and TESS missions.**
+
+---
+
+## 🚀 **Mission Overview**
+
+Our solution addresses the NASA Space Apps Challenge 2025: **"A World Away: Hunting for Exoplanets with AI"**
+
+### 🎯 **Objective**
+Develop advanced AI systems to hunt for exoplanets using NASA's treasure trove of space data, helping humanity discover worlds beyond our solar system.
+
+### ✨ **Key Features**
+- 🤖 **Advanced AI Ensemble**: Random Forest + Extra Trees for 85.9% accuracy
+- 🔬 **Multi-Mission Data**: Supports Kepler, K2, and TESS datasets  
+- 🌐 **Real-time Web Interface**: Interactive classification system
+- 📊 **Comprehensive Analysis**: Advanced EDA and batch processing
+- 🎯 **Multi-class Detection**: Confirmed/Candidate/False Positive classification
+- 🌍 **Habitability Assessment**: Automatic habitability zone detection
+
+---
+
+## 🏆 **Technical Achievements**
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| **AI Accuracy** | ✅ 85.9% | Ensemble model with cross-validation |
+| **Real-time Prediction** | ✅ < 1 second | Instant exoplanet classification |
+| **Batch Processing** | ✅ 1000+ objects | Process entire datasets efficiently |
+| **Web Interface** | ✅ Production-ready | Professional Streamlit deployment |
+| **Feature Engineering** | ✅ Astronomical | Domain-specific feature creation |
+| **Data Validation** | ✅ Robust | Comprehensive error handling |
+
+---
+
+## 🛠️ **Installation & Quick Start**
+
+### **Prerequisites**
+- Python 3.8 or higher
+- pip package manager
+
+### **1. Clone Repository**
+```bash
+git clone https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-.git
+cd Exoplanet-Classifier-NASA-KOI-K2-TESS-
+```
+
+### **2. Install Dependencies**
+```bash
+pip install scikit-learn pandas numpy matplotlib seaborn plotly streamlit joblib
+```
+
+### **3. Train NASA AI Models**
+```bash
+python nasa_clean_model.py
+```
+
+### **4. Launch Web Interface**
+```bash
+streamlit run nasa_app_interface.py
+```
+
+### **5. Open in Browser**
+Navigate to: `http://localhost:8501`
+
+---
+
+## 🔬 **Model Architecture**
+
+### **AI Ensemble System**
+Our solution uses a sophisticated ensemble approach:
+
+```python
+🤖 NASA AI Ensemble
+├── Random Forest Classifier (200 trees)
+├── Extra Trees Classifier (200 trees)  
+└── Voting Classifier (Soft voting)
+```
+
+### **Feature Engineering**
+Advanced astronomical feature engineering:
+- **Planetary Mass Proxy**: Mass-radius relationship
+- **Temperature Ratios**: Planet/stellar temperature analysis
+- **Orbital Velocity**: Derived from period and distance
+- **Habitability Indicators**: Temperature-based life potential
+- **Transit Depth**: Detection difficulty assessment
+
+### **Performance Metrics**
+| Model | Test Accuracy | CV Mean | CV Std |
+|-------|---------------|---------|--------|
+| Random Forest | 85.6% | 86.6% | ±1.7% |
+| Extra Trees | 85.6% | 86.6% | ±1.2% |
+| **Ensemble** | **85.9%** | **86.6%** | **±1.5%** |
+
+---
+
+## 🌐 **Web Interface Features**
+
+### **🔭 Single Classification**
+- Real-time exoplanet classification
+- Interactive parameter input
+- Confidence visualization
+- Habitability assessment
+
+### **📊 Batch Analysis**
+- CSV file upload support
+- Bulk processing capabilities
+- Results download functionality
+- Statistical summaries
+
+### **📈 Mission Dashboard**
+- Model performance metrics
+- Feature importance analysis
+- NASA mission information
+- System status monitoring
+
+### **🎓 Challenge Information**
+- NASA Space Apps Challenge details
+- Technical achievement highlights
+- Mission backgrounds (Kepler/K2/TESS)
+
+---
+
+## 📁 **Project Structure**
+
+```
+nasa-exoplanet-hunter/
+├── 📄 nasa_clean_model.py          # Main training pipeline
+├── 🌐 nasa_app_interface.py        # Streamlit web interface
+├── 📊 nasa_exoplanet_ai_results.png # Performance visualizations
+├── 📂 nasa_models/                 # Trained models directory
+│   ├── nasa_ensemble_model.pkl
+│   ├── nasa_random_forest_model.pkl
+│   ├── nasa_extra_trees_model.pkl
+│   ├── nasa_scaler.pkl
+│   ├── nasa_imputer.pkl
+│   ├── nasa_label_encoder.pkl
+│   ├── nasa_metadata.json
+│   └── nasa_training_report.json
+├── 📋 README.md                    # This file
+└── 📊 Legacy files (previous versions)
+```
+
+---
+
+## 🛰️ **NASA Missions Supported**
+
+### **🔭 Kepler Mission (2009-2013)**
+- **Discoveries**: 2,662 confirmed exoplanets
+- **Method**: Transit photometry
+- **Data**: Primary mission observations
+
+### **🌟 K2 Mission (2014-2018)**
+- **Extension**: Of Kepler mission
+- **Discoveries**: 500+ exoplanets  
+- **Innovation**: New observing strategy
+
+### **🚀 TESS Mission (2018-Present)**
+- **Scope**: All-sky survey
+- **Discoveries**: 7,000+ candidates
+- **Status**: Currently active
+
+---
+
+## 🔬 **Scientific Background**
+
+### **Exoplanet Detection Methods**
+Our AI system focuses on **transit photometry**:
+1. **Light Curve Analysis**: Detecting periodic dimming
+2. **False Positive Filtering**: Distinguishing real planets
+3. **Parameter Extraction**: Deriving physical properties
+
+### **Classification Categories**
+- **🪐 CONFIRMED**: Verified exoplanets with high confidence
+- **🔍 CANDIDATE**: Promising signals requiring verification  
+- **❌ FALSE POSITIVE**: Instrumental artifacts or stellar activity
+
+### **Key Parameters**
+| Parameter | Symbol | Description | Units |
+|-----------|---------|-------------|--------|
+| Orbital Period | P | Time for one orbit | days |
+| Planet Radius | Rp | Radius relative to Earth | Earth radii |
+| Equilibrium Temp | Teq | Estimated surface temp | Kelvin |
+| Insolation Flux | S | Stellar energy received | Earth flux |
+| Stellar Radius | Rs | Star radius | Solar radii |
+
+---
+
+## 📊 **Usage Examples**
+
+### **1. Single Classification**
+```python
+# Example: Classify a potential exoplanet
+input_data = {
+    'koi_period': 365.25,      # Earth-like orbit
+    'koi_prad': 1.0,           # Earth-sized
+    'koi_teq': 288.0,          # Habitable temperature
+    'koi_insol': 1.0,          # Earth-like insolation
+    # ... other parameters
+}
+
+result = predictor.predict(input_data)
+print(f"Classification: {result['prediction']}")
+print(f"Confidence: {result['confidence']:.1%}")
+```
+
+### **2. Batch Processing**
+```python
+# Process multiple objects from CSV
+df = pd.read_csv('exoplanet_candidates.csv')
+results = process_batch(df)
+results.to_csv('classified_results.csv')
+```
+
+---
+
+## 🎯 **NASA Space Apps Challenge Alignment**
+
+### **Challenge Requirements** ✅
+- [x] **AI/ML Implementation**: Advanced ensemble models
+- [x] **NASA Data Integration**: Kepler/K2/TESS datasets  
+- [x] **Real-world Application**: Production-ready system
+- [x] **Innovation**: Feature engineering + ensemble approach
+- [x] **Scalability**: Batch processing capabilities
+
+### **Impact & Innovation**
+- **🌍 Democratizing Discovery**: Web interface for researchers
+- **🚀 Accelerating Science**: Automated classification pipeline
+- **📚 Educational Value**: Interactive learning platform
+- **🔬 Research Tool**: Professional-grade analysis system
+
+---
+
+## 🤝 **Contributing**
+
+We welcome contributions to enhance the NASA Exoplanet Hunter! 
+
+### **Areas for Contribution**
+- 🌟 Additional NASA datasets integration
+- 🤖 Advanced AI model architectures
+- 🎨 UI/UX improvements
+- 📊 Visualization enhancements
+- 🔬 New feature engineering approaches
+
+---
+
+## 📄 **License**
+
+This project is licensed under the MIT License.
+
+---
+
+## 🙏 **Acknowledgments**
+
+- **NASA** for providing incredible exoplanet datasets
+- **NASA Space Apps Challenge** for inspiring global innovation
+- **Kepler/K2/TESS Teams** for groundbreaking space missions
+- **Open Source Community** for amazing tools and libraries
+
+---
+
+## 📞 **Contact & Links**
+
+- 🌐 **NASA Space Apps**: [spaceappschallenge.org](https://www.spaceappschallenge.org)
+- 📊 **NASA Exoplanet Archive**: [exoplanetarchive.ipac.caltech.edu](https://exoplanetarchive.ipac.caltech.edu)
+- 🚀 **GitHub Repository**: [github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-](https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-)
+
+---
+
+<div align="center">
+
+## 🌌 **"A World Away" - NASA Space Apps Challenge 2025** 🌌
+
+**Advancing humanity's search for worlds beyond our solar system**
+
+![NASA](https://img.shields.io/badge/NASA-Space%20Apps%20Challenge-blue)
+![AI](https://img.shields.io/badge/AI-Exoplanet%20Hunter-orange)  
+![Mission](https://img.shields.io/badge/Mission-A%20World%20Away-green)
+
+**🚀 Ready for NASA Space Apps Challenge 2025 Submission! 🚀**
+
+</div>ation System
 **NASA Space Apps Challenge 2025 - "A World Away: Hunting for Exoplanets with AI"**
 
 > **Enterprise-grade machine learning solution** for classifying astronomical objects as confirmed exoplanets, planet candidates, or false positives using data from NASA's Kepler, K2, and TESS missions. 

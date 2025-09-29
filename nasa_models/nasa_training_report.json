@@ -1,0 +1,142 @@
+{
+  "training_date": "2025-09-29T21:48:07.133621",
+  "challenge": "NASA Space Apps Challenge 2025 - A World Away: Hunting for Exoplanets with AI",
+  "dataset_info": {
+    "total_features": 12,
+    "feature_names": [
+      "koi_period",
+      "koi_prad",
+      "koi_teq",
+      "koi_insol",
+      "koi_srad",
+      "koi_smass",
+      "koi_steff",
+      "koi_sage",
+      "koi_dor",
+      "ra",
+      "dec",
+      "koi_score"
+    ],
+    "target_classes": [
+      "CANDIDATE",
+      "CONFIRMED",
+      "FALSE_POSITIVE"
+    ]
+  },
+  "model_performance": {
+    "random_forest": {
+      "accuracy": 0.856,
+      "cv_mean": 0.86575,
+      "cv_std": 0.017474982117301308,
+      "classification_report": {
+        "CANDIDATE": {
+          "precision": 0.8415178571428571,
+          "recall": 0.8377777777777777,
+          "f1-score": 0.8396436525612472,
+          "support": 450.0
+        },
+        "CONFIRMED": {
+          "precision": 0.765625,
+          "recall": 0.7716535433070866,
+          "f1-score": 0.7686274509803922,
+          "support": 254.0
+        },
+        "FALSE_POSITIVE": {
+          "precision": 0.956081081081081,
+          "recall": 0.956081081081081,
+          "f1-score": 0.956081081081081,
+          "support": 296.0
+        },
+        "accuracy": 0.856,
+        "macro avg": {
+          "precision": 0.8544079794079794,
+          "recall": 0.8551708007219818,
+          "f1-score": 0.8547840615409069,
+          "support": 1000.0
+        },
+        "weighted avg": {
+          "precision": 0.8561517857142856,
+          "recall": 0.856,
+          "f1-score": 0.8560710162015809,
+          "support": 1000.0
+        }
+      }
+    },
+    "extra_trees": {
+      "accuracy": 0.856,
+      "cv_mean": 0.8655000000000002,
+      "cv_std": 0.011874342087037939,
+      "classification_report": {
+        "CANDIDATE": {
+          "precision": 0.8558139534883721,
+          "recall": 0.8177777777777778,
+          "f1-score": 0.8363636363636363,
+          "support": 450.0
+        },
+        "CONFIRMED": {
+          "precision": 0.7591240875912408,
+          "recall": 0.8188976377952756,
+          "f1-score": 0.7878787878787878,
+          "support": 254.0
+        },
+        "FALSE_POSITIVE": {
+          "precision": 0.9459459459459459,
+          "recall": 0.9459459459459459,
+          "f1-score": 0.9459459459459459,
+          "support": 296.0
+        },
+        "accuracy": 0.856,
+        "macro avg": {
+          "precision": 0.8536279956751863,
+          "recall": 0.8608737871729998,
+          "f1-score": 0.8567294567294567,
+          "support": 1000.0
+        },
+        "weighted avg": {
+          "precision": 0.8579337973179425,
+          "recall": 0.856,
+          "f1-score": 0.8564848484848485,
+          "support": 1000.0
+        }
+      }
+    },
+    "ensemble": {
+      "accuracy": 0.859,
+      "cv_mean": 0.8664999999999999,
+      "cv_std": 0.014966629547095772,
+      "classification_report": {
+        "CANDIDATE": {
+          "precision": 0.8471910112359551,
+          "recall": 0.8377777777777777,
+          "f1-score": 0.8424581005586592,
+          "support": 450.0
+        },
+        "CONFIRMED": {
+          "precision": 0.7683397683397684,
+          "recall": 0.7834645669291339,
+          "f1-score": 0.7758284600389863,
+          "support": 254.0
+        },
+        "FALSE_POSITIVE": {
+          "precision": 0.956081081081081,
+          "recall": 0.956081081081081,
+          "f1-score": 0.956081081081081,
+          "support": 296.0
+        },
+        "accuracy": 0.859,
+        "macro avg": {
+          "precision": 0.8572039535522681,
+          "recall": 0.8591078085959976,
+          "f1-score": 0.8581225472262423,
+          "support": 1000.0
+        },
+        "weighted avg": {
+          "precision": 0.859394256214481,
+          "recall": 0.859,
+          "f1-score": 0.8591665741012992,
+          "support": 1000.0
+        }
+      }
+    }
+  }
+}
