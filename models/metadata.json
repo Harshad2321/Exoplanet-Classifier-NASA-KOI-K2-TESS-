@@ -1,0 +1,46 @@
+{
+  "training_date": "2025-09-29T19:32:54.853949",
+  "dataset_size": 5000,
+  "n_features": 14,
+  "feature_names": [
+    "koi_period",
+    "koi_prad",
+    "koi_teq",
+    "koi_insol",
+    "koi_srad",
+    "koi_dor",
+    "koi_smass",
+    "koi_steff",
+    "koi_sage",
+    "ra",
+    "dec",
+    "koi_score",
+    "koi_impact",
+    "koi_duration"
+  ],
+  "classes": [
+    "CANDIDATE",
+    "CONFIRMED",
+    "FALSE_POSITIVE"
+  ],
+  "all_scores": {
+    "random_forest": 0.917,
+    "extra_trees": 0.905,
+    "ensemble": 0.907
+  },
+  "best_model": "random_forest",
+  "random_seed": 42,
+  "deterministic": true,
+  "model_parameters": {
+    "random_forest": {
+      "n_estimators": 100,
+      "random_state": 42,
+      "max_depth": 10
+    },
+    "extra_trees": {
+      "n_estimators": 100,
+      "random_state": 42,
+      "max_depth": 10
+    }
+  }
+}
