@@ -31,14 +31,18 @@ MANIFEST
 .ipynb_checkpoints/
 *.ipynb.tmp
 
-# Model files (large files - using Git LFS)
-models/**/*.pkl
-models/**/*.joblib
-models/**/*.h5
-models/**/*.keras
-models/**/*.pt
-models/**/*.pth
-models/**/*.onnx
+# NASA AI Model files are kept (they're essential for the competition)
+# models/**/*.pkl  # COMMENTED OUT - we need these models!
+
+# Test and development files
+test_*.py
+check_*.py
+*_test.py
+*_debug.py
+
+# Temporary files
+*.tmp
+*.temp
 
 # Data files (can be large - keep structure but ignore large files)
 data/processed/*.csv
