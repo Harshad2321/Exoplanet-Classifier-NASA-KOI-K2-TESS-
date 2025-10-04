@@ -23,6 +23,14 @@ from pathlib import Path
 import warnings
 warnings.filterwarnings('ignore')
 
+# Import our smart classifier
+try:
+    from nasa_smart_classifier import SmartNASAExoplanetClassifier
+    SMART_CLASSIFIER_AVAILABLE = True
+except ImportError:
+    SMART_CLASSIFIER_AVAILABLE = False
+    st.error("Smart classifier not available. Please ensure nasa_smart_classifier.py is in the same directory.")
+
 # Configure Streamlit page
 st.set_page_config(
     page_title="NASA Exoplanet Hunter AI - Space Apps 2025",
@@ -32,7 +40,7 @@ st.set_page_config(
 )
 
 class NASAExoplanetPredictor:
-    """🚀 NASA Space Apps Challenge 2025 Exoplanet Prediction System"""
+    """🚀 NASA Space Apps Challenge 2025 Exoplanet Prediction System with Smart AI Selection"""
     
     def __init__(self, model_dir='nasa_models'):
         self.model_dir = Path(model_dir)
@@ -42,6 +50,12 @@ class NASAExoplanetPredictor:
         self.label_encoder = None
         self.metadata = None
         self.is_loaded = False
+        self.smart_classifier = None
+        
+        # Initialize smart classifier if available
+        if SMART_CLASSIFIER_AVAILABLE:
+            self.smart_classifier = SmartNASAExoplanetClassifier()
+            st.success("🤖 Smart AI Model Selection Enabled!")
         
     def load_models(self):
         """Load NASA AI models and preprocessing components"""
@@ -222,13 +236,18 @@ def main():
         
         st.markdown("---")
         
-        # Model selection
-        available_models = list(predictor.models.keys())
-        selected_model = st.selectbox(
+        # Model selection with smart option
+        model_options = ["🤖 Auto-Select (Smart AI)"] + list(predictor.models.keys())
+        
+        selected_option = st.selectbox(
             "🤖 Select NASA AI Model:",
-            available_models,
-            index=available_models.index('Ensemble') if 'Ensemble' in available_models else 0
+            model_options,
+            help="Smart AI automatically selects the best model based on your data characteristics"
         )
+        
+        # Determine if using smart selection
+        use_smart_selection = selected_option == "🤖 Auto-Select (Smart AI)"
+        selected_model = selected_option if not use_smart_selection else 'Ensemble'
         
         st.markdown("---")
         
@@ -242,9 +261,10 @@ def main():
         """)
     
     # Main interface tabs
-    tab1, tab2, tab3, tab4 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "🔭 Single Classification", 
         "📊 Batch Analysis", 
+        "🤖 Smart AI Training",
         "📈 Mission Dashboard",
         "🎓 About Challenge"
     ])
@@ -599,6 +619,196 @@ def main():
                 st.error(f"Error processing file: {e}")
     
     with tab3:
+        st.markdown("### 🤖 Smart AI Training System")
+        st.markdown("Upload your own dataset and let our Smart AI automatically select the optimal model!")
+        
+        if not SMART_CLASSIFIER_AVAILABLE:
+            st.error("🚨 Smart classifier not available. Please ensure nasa_smart_classifier.py is in the directory.")
+            return
+        
+        # File uploader for training data
+        uploaded_file = st.file_uploader(
+            "📊 Upload Training Dataset (CSV)", 
+            type=['csv'],
+            help="Upload a CSV file with exoplanet data including features and target labels"
+        )
+        
+        if uploaded_file is not None:
+            try:
+                df = pd.read_csv(uploaded_file)
+                
+                st.success(f"✅ Dataset loaded: {len(df)} samples, {len(df.columns)} columns")
+                
+                # Data preview
+                with st.expander("👀 Data Preview"):
+                    st.dataframe(df.head(10))
+                    
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("📏 Samples", len(df))
+                    with col2:
+                        st.metric("📊 Features", len(df.columns) - 1)
+                    with col3:
+                        missing_pct = (df.isnull().sum().sum() / (len(df) * len(df.columns))) * 100
+                        st.metric("🕳️ Missing Data", f"{missing_pct:.1f}%")
+                
+                # Smart training options
+                st.markdown("#### ⚙️ Smart Training Configuration")
+                
+                col1, col2 = st.columns(2)
+                with col1:
+                    test_size = st.slider("Test Set Size", 0.1, 0.4, 0.2, 0.05)
+                    auto_features = st.checkbox("🧠 Auto Feature Engineering", value=True)
+                
+                with col2:
+                    show_analysis = st.checkbox("📊 Show Data Analysis", value=True)
+                    compare_models = st.checkbox("🔍 Compare All Models", value=True)
+                
+                # Smart training button
+                if st.button("🚀 Start Smart AI Training", type="primary", use_container_width=True):
+                    
+                    progress_bar = st.progress(0)
+                    status_text = st.empty()
+                    
+                    with st.spinner("🤖 Smart AI is analyzing your data and selecting optimal models..."):
+                        
+                        # Initialize smart classifier
+                        smart_classifier = SmartNASAExoplanetClassifier()
+                        
+                        # Update progress
+                        progress_bar.progress(20)
+                        status_text.text("🔍 Analyzing data characteristics...")
+                        
+                        # Train with smart selection
+                        results = smart_classifier.smart_train(df, test_size=test_size)
+                        
+                        progress_bar.progress(100)
+                        status_text.text("✅ Smart training completed!")
+                        
+                        # Display results
+                        st.markdown("---")
+                        st.markdown("### 🎯 Smart AI Results")
+                        
+                        # Selected model info
+                        col1, col2 = st.columns(2)
+                        
+                        with col1:
+                            st.markdown("#### 🤖 Selected Model")
+                            selected_model_name = smart_classifier.selected_model.replace('_', ' ').title()
+                            st.success(f"**{selected_model_name}**")
+                            st.info(f"**Accuracy:** {results[smart_classifier.selected_model]['accuracy']:.1%}")
+                            
+                        with col2:
+                            st.markdown("#### 📝 Selection Reasoning")
+                            st.write(smart_classifier.selection_reason)
+                        
+                        # Data characteristics analysis
+                        if show_analysis:
+                            st.markdown("#### 📊 Data Analysis Results")
+                            
+                            chars = smart_classifier.data_characteristics
+                            
+                            col1, col2, col3, col4 = st.columns(4)
+                            
+                            with col1:
+                                st.metric("📏 Samples", f"{chars['n_samples']:,}")
+                                st.metric("🔬 Features", chars['n_features'])
+                                
+                            with col2:
+                                st.metric("🕳️ Missing Data", f"{chars['missing_ratio']:.1%}")
+                                st.metric("⚖️ Class Balance", f"{chars['imbalance_ratio']:.3f}")
+                                
+                            with col3:
+                                st.metric("🎯 Outliers", f"{chars['outlier_ratio']:.1%}")
+                                st.metric("📡 Noise Level", f"{chars['noise_level']:.3f}")
+                                
+                            with col4:
+                                st.metric("🔗 Feature Correlation", f"{chars['feature_correlation']:.3f}")
+                                st.metric("📊 Numeric Features", chars['numeric_features'])
+                        
+                        # Model comparison
+                        if compare_models and len(results) > 1:
+                            st.markdown("#### 🏆 Model Performance Comparison")
+                            
+                            comparison_data = []
+                            for model_name, result in results.items():
+                                comparison_data.append({
+                                    'Model': model_name.replace('_', ' ').title(),
+                                    'Accuracy': result['accuracy'],
+                                    'CV Mean': result['cv_mean'],
+                                    'CV Std': result['cv_std'],
+                                    'Selected': '🎯' if result.get('is_selected', False) else ''
+                                })
+                            
+                            comparison_df = pd.DataFrame(comparison_data)
+                            comparison_df = comparison_df.sort_values('Accuracy', ascending=False)
+                            
+                            st.dataframe(
+                                comparison_df.style.format({
+                                    'Accuracy': '{:.1%}',
+                                    'CV Mean': '{:.1%}',
+                                    'CV Std': '{:.1%}'
+                                }),
+                                use_container_width=True
+                            )
+                            
+                            # Performance visualization
+                            fig = px.bar(
+                                comparison_df,
+                                x='Model',
+                                y='Accuracy',
+                                title='Model Performance Comparison',
+                                color='Accuracy',
+                                color_continuous_scale='viridis'
+                            )
+                            fig.update_layout(height=400)
+                            st.plotly_chart(fig, use_container_width=True)
+                        
+                        # Save model option
+                        st.markdown("#### 💾 Save Smart Model")
+                        
+                        model_name = st.text_input("Model Name", value="smart_nasa_classifier")
+                        
+                        if st.button("💾 Save Smart Model"):
+                            filename = f"{model_name}.joblib"
+                            smart_classifier.save_smart_model(filename)
+                            st.success(f"✅ Smart model saved as {filename}")
+                            
+                            # Generate report
+                            report = smart_classifier.generate_smart_report()
+                            st.success("📋 Smart training report generated!")
+                            
+                            # Download report
+                            report_json = json.dumps(report, indent=2, default=str)
+                            st.download_button(
+                                "📥 Download Training Report",
+                                report_json,
+                                f"{model_name}_report.json",
+                                "application/json"
+                            )
+            
+            except Exception as e:
+                st.error(f"Error processing training data: {e}")
+        
+        else:
+            # Demo section
+            st.markdown("#### 🎬 Smart AI Demo")
+            st.info("Upload a CSV file above to see Smart AI in action, or try our demo scenarios:")
+            
+            demo_scenarios = [
+                "Small Clean Dataset (800 samples, low noise)",
+                "Medium Noisy Dataset (3000 samples, high noise)", 
+                "Large Imbalanced Dataset (8000 samples, class imbalance)"
+            ]
+            
+            selected_demo = st.selectbox("🎯 Select Demo Scenario", demo_scenarios)
+            
+            if st.button("🎬 Run Demo", type="secondary"):
+                with st.spinner("🎬 Running Smart AI demo..."):
+                    st.info(f"Demo: {selected_demo}")
+                    st.success("✅ In a real scenario, Smart AI would analyze this data and automatically select the optimal model!")
+
+    with tab4:
         st.markdown("### 📈 NASA Space Apps Mission Dashboard")
         
         if predictor.metadata:
