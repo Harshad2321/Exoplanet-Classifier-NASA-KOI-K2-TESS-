@@ -18,19 +18,14 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy frontend package files
-COPY frontend/package*.json ./frontend/
-
-# Install frontend dependencies
-WORKDIR /app/frontend
-RUN npm ci --only=production
-
 # Copy all project files
-WORKDIR /app
 COPY . .
 
-# Build React frontend
+# Install frontend dependencies (including dev dependencies for build)
 WORKDIR /app/frontend
+RUN npm ci
+
+# Build React frontend
 RUN npm run build
 
 # Go back to app directory

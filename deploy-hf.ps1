@@ -1,15 +1,16 @@
-# 🚀 Quick Deployment Script for Hugging Face Spaces
+# Quick Deployment Script for Hugging Face Spaces
+# NASA Exoplanet Classifier
 
-Write-Host "🌍 NASA Exoplanet Classifier - Hugging Face Deployment" -ForegroundColor Cyan
-Write-Host "=" * 60 -ForegroundColor Cyan
+Write-Host "NASA Exoplanet Classifier - Hugging Face Deployment" -ForegroundColor Cyan
+Write-Host ("=" * 60) -ForegroundColor Cyan
 
 # Check if Git is installed
 try {
     git --version | Out-Null
-    Write-Host "✅ Git is installed" -ForegroundColor Green
+    Write-Host "[OK] Git is installed" -ForegroundColor Green
 } catch {
-    Write-Host "❌ Git is not installed. Please install Git first." -ForegroundColor Red
-    Write-Host "   Download from: https://git-scm.com/download/win" -ForegroundColor Yellow
+    Write-Host "[ERROR] Git is not installed. Please install Git first." -ForegroundColor Red
+    Write-Host "Download from: https://git-scm.com/download/win" -ForegroundColor Yellow
     exit 1
 }
 
@@ -25,7 +26,7 @@ $spaceName = Read-Host "Enter your Space name (e.g., nasa-exoplanet-classifier)"
 $spaceUrl = "https://huggingface.co/spaces/$hfUsername/$spaceName"
 
 Write-Host ""
-Write-Host "📋 Deployment Summary:" -ForegroundColor Yellow
+Write-Host "Deployment Summary:" -ForegroundColor Yellow
 Write-Host "   Username: $hfUsername"
 Write-Host "   Space Name: $spaceName"
 Write-Host "   Space URL: $spaceUrl"
@@ -34,14 +35,14 @@ Write-Host ""
 $confirm = Read-Host "Continue with deployment? (y/n)"
 
 if ($confirm -ne "y") {
-    Write-Host "❌ Deployment cancelled" -ForegroundColor Red
+    Write-Host "[CANCELLED] Deployment cancelled" -ForegroundColor Red
     exit 0
 }
 
 # Create temporary directory
 $tempDir = "..\nasa-exoplanet-classifier-deploy"
 Write-Host ""
-Write-Host "📁 Creating temporary directory..." -ForegroundColor Cyan
+Write-Host "Creating temporary directory..." -ForegroundColor Cyan
 
 if (Test-Path $tempDir) {
     Write-Host "   Cleaning existing directory..." -ForegroundColor Yellow
@@ -50,21 +51,21 @@ if (Test-Path $tempDir) {
 
 # Clone the space
 Write-Host ""
-Write-Host "📥 Cloning Hugging Face Space..." -ForegroundColor Cyan
-git clone $spaceUrl $tempDir
+Write-Host "Cloning Hugging Face Space..." -ForegroundColor Cyan
+git clone $spaceUrl $tempDir 2>&1 | Out-Null
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host ""
-    Write-Host "❌ Failed to clone Space. Please make sure:" -ForegroundColor Red
+    Write-Host "[ERROR] Failed to clone Space. Please make sure:" -ForegroundColor Red
     Write-Host "   1. You created the Space on Hugging Face" -ForegroundColor Yellow
-    Write-Host "   2. You're logged in with Git (run: git config --global credential.helper wincred)" -ForegroundColor Yellow
+    Write-Host "   2. You're logged in with Git" -ForegroundColor Yellow
     Write-Host "   3. The Space URL is correct: $spaceUrl" -ForegroundColor Yellow
     exit 1
 }
 
 # Copy files
 Write-Host ""
-Write-Host "📋 Copying project files..." -ForegroundColor Cyan
+Write-Host "Copying project files..." -ForegroundColor Cyan
 
 $filesToCopy = @(
     "frontend",
@@ -79,14 +80,14 @@ $filesToCopy = @(
 
 foreach ($file in $filesToCopy) {
     if (Test-Path $file) {
-        Write-Host "   ✅ Copying $file" -ForegroundColor Green
+        Write-Host "   [OK] Copying $file" -ForegroundColor Green
         if (Test-Path $file -PathType Container) {
             Copy-Item -Recurse -Force $file $tempDir\
         } else {
             Copy-Item -Force $file $tempDir\
         }
     } else {
-        Write-Host "   ⚠️  Warning: $file not found (skipping)" -ForegroundColor Yellow
+        Write-Host "   [WARN] $file not found (skipping)" -ForegroundColor Yellow
     }
 }
 
@@ -153,14 +154,13 @@ Set-Location $tempDir
 
 # Add all files
 Write-Host ""
-Write-Host "📦 Adding files to Git..." -ForegroundColor Cyan
+Write-Host "Adding files to Git..." -ForegroundColor Cyan
 git add .
 
 # Commit
 Write-Host ""
 Write-Host "Creating commit..." -ForegroundColor Cyan
-$commitMsg = "Initial deployment of NASA Exoplanet Classifier`n`nFastAPI backend with 3 AI models`nReact TypeScript frontend`nAutomatic single/batch detection`nDocker containerized deployment"
-git commit -m $commitMsg
+git commit -m "Initial deployment - FastAPI backend with 3 AI models, React frontend, Docker containerized"
 
 # Push to Hugging Face
 Write-Host ""
@@ -169,39 +169,39 @@ git push
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host ""
-    Write-Host "=" * 60 -ForegroundColor Green
-    Write-Host "✅ DEPLOYMENT SUCCESSFUL!" -ForegroundColor Green
-    Write-Host "=" * 60 -ForegroundColor Green
+    Write-Host ("=" * 60) -ForegroundColor Green
+    Write-Host "[SUCCESS] DEPLOYMENT SUCCESSFUL!" -ForegroundColor Green
+    Write-Host ("=" * 60) -ForegroundColor Green
     Write-Host ""
-    Write-Host "🌐 Your Space URL: $spaceUrl" -ForegroundColor Cyan
+    Write-Host "Your Space URL: $spaceUrl" -ForegroundColor Cyan
     Write-Host ""
-    Write-Host "⏳ Next Steps:" -ForegroundColor Yellow
+    Write-Host "Next Steps:" -ForegroundColor Yellow
     Write-Host "   1. Wait 5-10 minutes for Docker build to complete"
     Write-Host "   2. Visit your Space URL to see the build progress"
     Write-Host "   3. Once built, your app will be live!"
     Write-Host ""
-    Write-Host "📊 Monitor your Space:" -ForegroundColor Yellow
+    Write-Host "Monitor your Space:" -ForegroundColor Yellow
     Write-Host "   - View logs: $spaceUrl (Logs tab)"
     Write-Host "   - Check metrics: $spaceUrl (Settings)"
     Write-Host "   - Update anytime: Push to this repo again"
     Write-Host ""
-    Write-Host "🎉 Happy Classifying!" -ForegroundColor Green
+    Write-Host "Happy Classifying!" -ForegroundColor Green
 } else {
     Write-Host ""
-    Write-Host "❌ Push failed. Please check your credentials." -ForegroundColor Red
-    Write-Host "   Try: git config --global credential.helper wincred" -ForegroundColor Yellow
+    Write-Host "[ERROR] Push failed. Please check your credentials." -ForegroundColor Red
+    Write-Host "Try: git config --global credential.helper wincred" -ForegroundColor Yellow
 }
 
 # Go back to original directory
 Set-Location ..
 
 Write-Host ""
-Write-Host "🧹 Cleanup: Remove temporary directory? (y/n)" -ForegroundColor Yellow
+Write-Host "Cleanup: Remove temporary directory? (y/n)" -ForegroundColor Yellow
 $cleanup = Read-Host
 
 if ($cleanup -eq "y") {
     Remove-Item -Recurse -Force $tempDir
-    Write-Host "✅ Cleaned up temporary files" -ForegroundColor Green
+    Write-Host "[OK] Cleaned up temporary files" -ForegroundColor Green
 } else {
-    Write-Host "📁 Temporary files kept at: $tempDir" -ForegroundColor Cyan
+    Write-Host "Temporary files kept at: $tempDir" -ForegroundColor Cyan
 }
