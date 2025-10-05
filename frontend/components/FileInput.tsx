@@ -3,8 +3,10 @@ import { ParticleCard, useMobileDetection } from './MagicBento';
 import type { ExoplanetData } from '../types';
 
 interface FileInputProps {
-  onFileParsed: (data: Partial<ExoplanetData>) => void;
-  onParseError: (message: string) => void;
+    onFileParsed: (data: Partial<ExoplanetData>) => void;
+    onParseError: (message: string) => void;
+    onBatchUpload?: (file: File) => void;
+    enableBatchMode?: boolean;
 }
 
 const UploadIcon = () => (
@@ -16,7 +18,12 @@ const FileIcon = () => (
 );
 
 
-export const FileInput: React.FC<FileInputProps> = ({ onFileParsed, onParseError }) => {
+export const FileInput: React.FC<FileInputProps> = ({
+    onFileParsed,
+    onParseError,
+    onBatchUpload,
+    enableBatchMode = false
+}) => {
     const [isDragActive, setIsDragActive] = useState(false);
     const [fileName, setFileName] = useState<string | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +34,7 @@ export const FileInput: React.FC<FileInputProps> = ({ onFileParsed, onParseError
     const parseCSV = (text: string): Partial<ExoplanetData> => {
         const lines = text.trim().split(/\r?\n/);
         if (lines.length < 2) throw new Error("CSV file must have a header and at least one data row.");
-        
+
         const headers = lines[0].split(',').map(h => h.trim());
         const values = lines[1].split(',').map(v => v.trim());
 
@@ -44,6 +51,15 @@ export const FileInput: React.FC<FileInputProps> = ({ onFileParsed, onParseError
 
     const processFile = useCallback((file: File) => {
         onParseError(''); // Clear previous errors
+
+        // Auto-detect: if CSV file and batch upload handler exists, use batch mode
+        if (file.name.endsWith('.csv') && onBatchUpload) {
+            setFileName(file.name);
+            onBatchUpload(file);
+            return;
+        }
+
+        // Otherwise, parse single entry (JSON files)
         const reader = new FileReader();
 
         reader.onload = (event) => {
@@ -76,9 +92,9 @@ export const FileInput: React.FC<FileInputProps> = ({ onFileParsed, onParseError
             onParseError("Failed to read the file.");
             setFileName(null);
         };
-        
+
         reader.readAsText(file);
-    }, [onFileParsed, onParseError]);
+    }, [onFileParsed, onParseError, onBatchUpload, enableBatchMode]);
 
     const handleDrag = useCallback((e: React.DragEvent) => {
         e.preventDefault();
@@ -105,11 +121,11 @@ export const FileInput: React.FC<FileInputProps> = ({ onFileParsed, onParseError
             processFile(e.target.files[0]);
         }
     };
-    
+
     const handleClearFile = () => {
         setFileName(null);
         onParseError('');
-        if(inputRef.current) {
+        if (inputRef.current) {
             inputRef.current.value = "";
         }
     };
@@ -127,7 +143,7 @@ export const FileInput: React.FC<FileInputProps> = ({ onFileParsed, onParseError
                 clickEffect={false}
                 enableMagnetism={true}
             >
-                <div 
+                <div
                     className={`relative p-4 text-center transition-colors duration-300 ${isDragActive ? 'bg-white/5' : ''}`}
                     onDragEnter={handleDrag}
                     onDragOver={handleDrag}
@@ -142,10 +158,10 @@ export const FileInput: React.FC<FileInputProps> = ({ onFileParsed, onParseError
                         accept=".json,.csv"
                         onChange={handleChange}
                     />
-                    
+
                     {!fileName ? (
                         <div onClick={handleClick} className="cursor-pointer border-2 border-dashed border-slate-600 hover:border-slate-500 rounded-lg p-8 flex flex-col items-center justify-center">
-                            <UploadIcon/>
+                            <UploadIcon />
                             <p className="text-slate-300 font-semibold">Upload Data File</p>
                             <p className="text-sm text-slate-400 mt-1">Drag & drop or click to upload</p>
                             <p className="text-xs text-slate-500 mt-2">(Supports .JSON or .CSV)</p>
@@ -156,8 +172,8 @@ export const FileInput: React.FC<FileInputProps> = ({ onFileParsed, onParseError
                                 <FileIcon />
                                 <span className="text-white font-medium">{fileName}</span>
                             </div>
-                            <button 
-                                onClick={handleClearFile} 
+                            <button
+                                onClick={handleClearFile}
                                 className="mt-4 text-sm bg-red-500/20 hover:bg-red-500/40 text-red-400 px-3 py-1 rounded-md transition-colors"
                             >
                                 Clear

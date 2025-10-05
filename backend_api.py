@@ -4,7 +4,7 @@
 Serves React frontend and provides classification API endpoints
 """
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -70,6 +70,22 @@ class ClassificationResponse(BaseModel):
     confidence: Optional[float] = None  # Optional for backward compatibility
     probabilities: Optional[Dict[str, float]] = None  # Optional
     model_used: Optional[str] = None  # Optional
+
+class BatchClassificationResult(BaseModel):
+    """Single row result in batch classification"""
+    row_number: int
+    classification: str
+    confidence: float
+    probabilities: Dict[str, float]
+    input_data: Dict[str, float]
+
+class BatchClassificationResponse(BaseModel):
+    """Response model for batch classification"""
+    total_rows: int
+    successful: int
+    failed: int
+    results: list[BatchClassificationResult]
+    errors: list[Dict[str, str]]
     
 class HealthResponse(BaseModel):
     """Health check response"""
@@ -274,6 +290,111 @@ async def classify_exoplanet(data: ExoplanetInput):
         logger.error(f"❌ Classification error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.post("/api/classify-batch", response_model=BatchClassificationResponse)
+async def classify_batch(file: UploadFile = File(...)):
+    """
+    Classify multiple exoplanets from uploaded CSV file
+    
+    Expected CSV format:
+    - First row: column headers matching ExoplanetInput field names
+    - Subsequent rows: data values
+    
+    Example CSV:
+    orbitalPeriod,stellarRadius,planetRadius,stellarMass,equilibriumTemperature,stellarTemperature,stellarAge,insolationFlux,distanceToStarRadius,rightAscension,declination,dispositionScore
+    365.25,1.0,1.0,1.0,288.0,5778.0,4.6,1.0,1.0,0.0,0.0,0.9
+    88.0,0.9,0.38,0.95,440.0,5700.0,4.5,6.67,0.39,45.0,15.0,0.85
+    """
+    
+    if not models:
+        raise HTTPException(status_code=503, detail="Models not loaded")
+    
+    # Validate file type
+    if not file.filename.endswith('.csv'):
+        raise HTTPException(status_code=400, detail="Only CSV files are supported")
+    
+    try:
+        # Read CSV content
+        contents = await file.read()
+        csv_text = contents.decode('utf-8')
+        
+        # Parse CSV using pandas
+        from io import StringIO
+        df = pd.read_csv(StringIO(csv_text))
+        
+        logger.info(f"📊 Processing batch file: {file.filename} ({len(df)} rows)")
+        
+        results = []
+        errors = []
+        successful = 0
+        failed = 0
+        
+        # Process each row
+        for idx, row in df.iterrows():
+            try:
+                # Convert row to ExoplanetInput format
+                row_data = {
+                    'orbitalPeriod': float(row.get('orbitalPeriod', row.get('koi_period', 0))),
+                    'stellarRadius': float(row.get('stellarRadius', row.get('koi_srad', 0))),
+                    'planetRadius': float(row.get('planetRadius', row.get('koi_prad', 0))),
+                    'stellarMass': float(row.get('stellarMass', row.get('koi_smass', 0))),
+                    'equilibriumTemperature': float(row.get('equilibriumTemperature', row.get('koi_teq', 0))),
+                    'stellarTemperature': float(row.get('stellarTemperature', row.get('koi_steff', 0))),
+                    'stellarAge': float(row.get('stellarAge', row.get('koi_sage', 0))),
+                    'insolationFlux': float(row.get('insolationFlux', row.get('koi_insol', 0))),
+                    'distanceToStarRadius': float(row.get('distanceToStarRadius', row.get('koi_dor', 0))),
+                    'rightAscension': float(row.get('rightAscension', row.get('ra', 0))),
+                    'declination': float(row.get('declination', row.get('dec', 0))),
+                    'dispositionScore': float(row.get('dispositionScore', row.get('koi_score', 0.5)))
+                }
+                
+                # Create ExoplanetInput instance
+                exoplanet = ExoplanetInput(**row_data)
+                
+                # Preprocess and classify
+                X = preprocess_input(exoplanet)
+                model = models.get('ensemble', list(models.values())[0])
+                
+                prediction_encoded = model.predict(X)[0]
+                probabilities = model.predict_proba(X)[0]
+                prediction = label_encoder.inverse_transform([prediction_encoded])[0]
+                
+                # Create probability dictionary
+                prob_dict = {}
+                for i, class_name in enumerate(label_encoder.classes_):
+                    prob_dict[class_name] = float(probabilities[i])
+                
+                results.append(BatchClassificationResult(
+                    row_number=int(idx) + 1,
+                    classification=prediction,
+                    confidence=float(max(probabilities)),
+                    probabilities=prob_dict,
+                    input_data=row_data
+                ))
+                
+                successful += 1
+                
+            except Exception as row_error:
+                failed += 1
+                errors.append({
+                    'row_number': int(idx) + 1,
+                    'error': str(row_error)
+                })
+                logger.warning(f"⚠️ Row {idx + 1} failed: {row_error}")
+        
+        logger.info(f"✅ Batch processing complete: {successful} successful, {failed} failed")
+        
+        return BatchClassificationResponse(
+            total_rows=len(df),
+            successful=successful,
+            failed=failed,
+            results=results,
+            errors=errors
+        )
+        
+    except Exception as e:
+        logger.error(f"❌ Batch classification error: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to process file: {str(e)}")
+
 @app.get("/api/models")
 async def list_models():
     """List available AI models"""
@@ -311,4 +432,7 @@ except Exception as e:
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+    import os
+    # Use port 7860 for Hugging Face Spaces, 8000 for local
+    port = int(os.getenv("PORT", 7860))
+    uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")

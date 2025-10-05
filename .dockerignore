@@ -1,0 +1,26 @@
+# Ignore node modules
+node_modules/
+frontend/node_modules/
+
+# Ignore build files
+frontend/dist/
+*.pyc
+__pycache__/
+
+# Ignore environment files
+.env
+.env.local
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Keep model files (important for deployment)
+!nasa_models/
+!data/processed/
