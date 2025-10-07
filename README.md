@@ -1,403 +1,1228 @@
+<div align="center"><div align="center">
 
-# NASA Exoplanet Classifier
 
-![NASA Space Apps Challenge](https://img.shields.io/badge/NASA%20Space%20Apps-2025-blue)
-![Python](https://img.shields.io/badge/Python-3.8%2B-green)
-![AI](https://img.shields.io/badge/AI-Machine%20Learning-orange)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 
-**Professional AI system for detecting and classifying exoplanets using NASA datasets from Kepler, K2, and TESS missions.**
+# NASA Exoplanet Hunter AI<div align="center">
 
-## Overview
+### Discover Worlds Beyond Our Solar System
 
-Our solution addresses the NASA Space Apps Challenge 2025: **"A World Away: Hunting for Exoplanets with AI"**
+# NASA Exoplanet Hunter AI
 
-Develop advanced AI systems to hunt for exoplanets using NASA's treasure trove of space data, helping humanity discover worlds beyond our solar system.
+![NASA Space Apps Challenge](https://img.shields.io/badge/NASA%20Space%20Apps-2025-0B3D91?style=for-the-badge&logo=nasa)
 
-### Key Features
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)### Discover Worlds Beyond Our Solar System# NASA Exoplanet Hunter AI
 
-- **Advanced AI Ensemble**: Random Forest + Extra Trees for 85.9% accuracy
-- **Multi-Mission Data**: Supports Kepler, K2, and TESS datasets  
-- **Full Stack Application**: React frontend + FastAPI backend
-- **Real-time Classification**: Interactive web interface
-- **Smart Model Selection**: Automatic AI model optimization
-- **Batch Processing**: Handle multiple exoplanet classifications
-- **Multi-class Detection**: Confirmed/Candidate/False Positive classification
+![AI](https://img.shields.io/badge/AI-Machine%20Learning-FF6B35?style=for-the-badge&logo=tensorflow&logoColor=white)
 
-### Performance Metrics
+![React](https://img.shields.io/badge/React-TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black)### Discover Worlds Beyond Our Solar System
+
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+
+![NASA Space Apps Challenge](https://img.shields.io/badge/NASA%20Space%20Apps-2025-0B3D91?style=for-the-badge&logo=nasa)
+
+[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-Hugging%20Face-FFD700?style=for-the-badge)](https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier)
+
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)![NASA Space Apps Challenge](https://img.shields.io/badge/NASA%20Space%20Apps-2025-0B3D91?style=for-the-badge&logo=nasa)
+
+
+
+**NASA Space Apps Challenge 2025 Solution**![AI](https://img.shields.io/badge/AI-Machine%20Learning-FF6B35?style=for-the-badge&logo=tensorflow&logoColor=white)![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+
+
+*Professional AI system for detecting and classifying exoplanets using NASA datasets from Kepler, K2, and TESS missions*![React](https://img.shields.io/badge/React-TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black)![AI](https://img.shields.io/badge/AI-Machine%20Learning-FF6B35?style=for-the-badge&logo=tensorflow&logoColor=white)
+
+
+
+---![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)![React](https://img.shields.io/badge/React-TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+
+
+
+### **LIVE DEMO AVAILABLE**![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+
+**[Try the NASA Exoplanet Classifier](https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier)**
+
+[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-Hugging%20Face-FFD700?style=for-the-badge)](https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier)
+
+*Experience real-time exoplanet classification powered by advanced AI*
+
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-Hugging%20Face-FFD700?style=for-the-badge)](https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier)
+
+---
+
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+</div>
+
+**NASA Space Apps Challenge 2025 Solution**
+
+## Mission Overview
+
+**NASA Space Apps Challenge 2025 Solution**
+
+> **Challenge**: "A World Away: Hunting for Exoplanets with AI"
+
+*Professional AI system for detecting and classifying exoplanets using NASA datasets from Kepler, K2, and TESS missions*
+
+Our advanced AI system revolutionizes exoplanet discovery by analyzing NASA's treasure trove of space data from three major missions. Using cutting-edge machine learning, we achieve **85.9% accuracy** in distinguishing confirmed exoplanets from false positives.
+
+*Professional AI system for detecting and classifying exoplanets using NASA datasets from Kepler, K2, and TESS missions*
+
+## Key Features
+
+---
+
+**Advanced AI Technology**
+
+- **Ensemble Learning**: Random Forest + Extra Trees achieving 85.9% accuracy---
+
+- **Smart Model Selection**: Automatic AI model optimization based on data characteristics
+
+- **Feature Engineering**: Astronomical parameter derivation and analysis### **LIVE DEMO AVAILABLE**
+
+- **Cross-Validation**: Robust model validation with statistical confidence
+
+**[Try the NASA Exoplanet Classifier](https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier)**### **LIVE DEMO AVAILABLE**
+
+**Multi-Mission Support**
+
+- **Kepler Mission**: 2,662+ confirmed exoplanet discoveries (2009-2013)**[Try the NASA Exoplanet Classifier](https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier)**
+
+- **K2 Mission**: Extended mission with 500+ additional discoveries (2014-2018)  
+
+- **TESS Mission**: All-sky survey with 1000+ ongoing discoveries (2018-present)*Experience real-time exoplanet classification powered by advanced AI*
+
+
+
+**Production-Ready System***Experience real-time exoplanet classification powered by advanced AI*
+
+- **Full Stack Application**: Modern React TypeScript frontend + FastAPI backend
+
+- **Real-time Classification**: Sub-500ms prediction response times---
+
+- **Batch Processing**: Handle 1000+ exoplanet classifications simultaneously
+
+- **RESTful API**: Professional backend with automatic documentation---
+
+- **Interactive Interface**: User-friendly web application for researchers
+
+</div>
+
+## Performance Metrics
+
+</div>
 
 | Feature | Status | Description |
-|---------|--------|-------------|
+
+|---------|--------|-------------|## Mission Overview
+
 | **AI Accuracy** | 85.9% | Ensemble model with cross-validation |
-| **Real-time Prediction** | < 500ms | Instant exoplanet classification |
+
+| **Real-time Prediction** | < 500ms | Instant exoplanet classification |## Mission Overview
+
 | **Batch Processing** | 1000+ objects | Process entire datasets efficiently |
-| **Web Interface** | Production-ready | Modern React + TypeScript frontend |
+
+| **Web Interface** | Production-ready | Modern React + TypeScript frontend |> **Challenge**: "A World Away: Hunting for Exoplanets with AI"
+
 | **API Response** | RESTful | FastAPI with automatic documentation |
-| **Data Validation** | Robust | Comprehensive error handling |
 
-## Quick Start
+| **Data Validation** | Robust | Comprehensive error handling |> **Challenge**: "A World Away: Hunting for Exoplanets with AI"
 
-### Prerequisites
 
-- Python 3.8 or higher
+
+## Quick StartOur advanced AI system revolutionizes exoplanet discovery by analyzing NASA's treasure trove of space data from three major missions. Using cutting-edge machine learning, we achieve **85.9% accuracy** in distinguishing confirmed exoplanets from false positives.
+
+
+
+### PrerequisitesOur advanced AI system revolutionizes exoplanet discovery by analyzing NASA's treasure trove of space data from three major missions. Using cutting-edge machine learning, we achieve **85.9% accuracy** in distinguishing confirmed exoplanets from false positives.
+
+
+
+- Python 3.8 or higher## Key Features
+
 - Node.js 14+ (for frontend development)
-- pip package manager
 
-### Installation
+- pip package manager## Key Features
 
-1. **Clone the repository**
+
+
+### Installation**Advanced AI Technology**
+
+
+
+1. **Clone the repository**- **Ensemble Learning**: Random Forest + Extra Trees achieving 85.9% accuracy**Advanced AI Technology**
+
 ```bash
-git clone https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-.git
+
+git clone https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-.git- **Smart Model Selection**: Automatic AI model optimization based on data characteristics- **Ensemble Learning**: Random Forest + Extra Trees achieving 85.9% accuracy
+
 cd Exoplanet-Classifier-NASA-KOI-K2-TESS-
+
+```- **Feature Engineering**: Astronomical parameter derivation and analysis- **Smart Model Selection**: Automatic AI model optimization based on data characteristics
+
+
+
+2. **Install Python dependencies**- **Cross-Validation**: Robust model validation with statistical confidence- **Feature Engineering**: Astronomical parameter derivation and analysis
+
+```bash
+
+pip install -r requirements.txt- **Cross-Validation**: Robust model validation with statistical confidence
+
 ```
 
-2. **Install Python dependencies**
-```bash
-pip install -r requirements.txt
-```
+**Multi-Mission Support**
 
 3. **Start the application**
-```bash
-python start_app.py
-```
 
-The application will start with:
+```bash- **Kepler Mission**: 2,662+ confirmed exoplanet discoveries (2009-2013)**Multi-Mission Support**
+
+python start_app.py
+
+```- **K2 Mission**: Extended mission with 500+ additional discoveries (2014-2018)  - **Kepler Mission**: 2,662+ confirmed exoplanet discoveries (2009-2013)
+
+
+
+The application will start with:- **TESS Mission**: All-sky survey with 1000+ ongoing discoveries (2018-present)- **K2 Mission**: Extended mission with 500+ additional discoveries (2014-2018)  
+
 - **Streamlit Interface**: http://localhost:8501
-- **FastAPI Backend**: http://localhost:8000  
+
+- **FastAPI Backend**: http://localhost:8000  - **TESS Mission**: All-sky survey with 1000+ ongoing discoveries (2018-present)
+
 - **API Documentation**: http://localhost:8000/docs
+
+**Production-Ready System**
 
 ### Alternative: Run Streamlit Only
 
+- **Full Stack Application**: Modern React TypeScript frontend + FastAPI backend**Production-Ready System**
+
 For Streamlit interface only:
-```bash
+
+```bash- **Real-time Classification**: Sub-500ms prediction response times- **Full Stack Application**: Modern React TypeScript frontend + FastAPI backend
+
 streamlit run nasa_app_interface.py
-```
 
-Navigate to: `http://localhost:8501`
+```- **Batch Processing**: Handle 1000+ exoplanet classifications simultaneously- **Real-time Classification**: Sub-500ms prediction response times
 
-### Docker Deployment
 
-```bash
+
+Navigate to: `http://localhost:8501`- **RESTful API**: Professional backend with automatic documentation- **Batch Processing**: Handle 1000+ exoplanet classifications simultaneously
+
+
+
+### Docker Deployment- **Interactive Interface**: User-friendly web application for researchers- **RESTful API**: Professional backend with automatic documentation
+
+
+
+```bash- **Interactive Interface**: User-friendly web application for researchers
+
 docker build -t nasa-exoplanet-classifier .
-docker run -p 8000:8000 nasa-exoplanet-classifier
+
+docker run -p 8000:8000 nasa-exoplanet-classifier### Performance Metrics
+
 ```
-
-## Architecture
-
-### Full Stack Application
-
-Our solution uses a modern full-stack architecture:
-
-**Frontend (React + TypeScript)**
-- Modern UI with space-themed design
-- Real-time classification interface
-- Interactive parameter inputs
-- Batch processing capabilities
-- Results visualization
-
-**Backend (FastAPI + Python)**  
-- RESTful API endpoints
-- Smart AI model selection
-- Real-time predictions
-- Batch processing support
-- Automatic API documentation
-
-### AI Model Ensemble
-
-```python
-NASA AI Ensemble Architecture:
-├── Random Forest Classifier (200 trees)
-├── Extra Trees Classifier (200 trees)  
-└── Voting Classifier (Soft voting)
-```
-
-**Advanced Feature Engineering:**
-- **Planetary Mass Proxy**: Mass-radius relationship analysis
-- **Temperature Ratios**: Planet/stellar temperature comparison  
-- **Orbital Velocity**: Derived from period and distance
-- **Habitability Indicators**: Temperature-based life potential
-- **Transit Depth**: Detection difficulty assessment
 
 ### Performance Metrics
 
+## Architecture
+
+| Feature | Status | Description |
+
+### Full Stack Application
+
+|---------|--------|-------------|| Feature | Status | Description |
+
+Our solution uses a modern full-stack architecture:
+
+| **AI Accuracy** | 85.9% | Ensemble model with cross-validation ||---------|--------|-------------|
+
+**Frontend (React + TypeScript)**
+
+- Modern UI with space-themed design| **Real-time Prediction** | < 500ms | Instant exoplanet classification || **AI Accuracy** | 85.9% | Ensemble model with cross-validation |
+
+- Real-time classification interface
+
+- Interactive parameter inputs| **Batch Processing** | 1000+ objects | Process entire datasets efficiently || **Real-time Prediction** | < 500ms | Instant exoplanet classification |
+
+- Batch processing capabilities
+
+- Results visualization| **Web Interface** | Production-ready | Modern React + TypeScript frontend || **Batch Processing** | 1000+ objects | Process entire datasets efficiently |
+
+
+
+**Backend (FastAPI + Python)**  | **API Response** | RESTful | FastAPI with automatic documentation || **Web Interface** | Production-ready | Modern React + TypeScript frontend |
+
+- RESTful API endpoints
+
+- Smart AI model selection| **Data Validation** | Robust | Comprehensive error handling || **API Response** | RESTful | FastAPI with automatic documentation |
+
+- Real-time predictions
+
+- Batch processing support| **Data Validation** | Robust | Comprehensive error handling |
+
+- Automatic API documentation
+
+## Quick Start
+
+### AI Model Ensemble
+
+## Quick Start
+
+```python
+
+NASA AI Ensemble Architecture:### Prerequisites
+
+├── Random Forest Classifier (200 trees)
+
+├── Extra Trees Classifier (200 trees)  ### Prerequisites
+
+└── Voting Classifier (Soft voting)
+
+```- Python 3.8 or higher
+
+
+
+**Advanced Feature Engineering:**- Node.js 14+ (for frontend development)- Python 3.8 or higher
+
+- **Planetary Mass Proxy**: Mass-radius relationship analysis
+
+- **Temperature Ratios**: Planet/stellar temperature comparison  - pip package manager- Node.js 14+ (for frontend development)
+
+- **Orbital Velocity**: Derived from period and distance
+
+- **Habitability Indicators**: Temperature-based life potential- pip package manager
+
+- **Transit Depth**: Detection difficulty assessment
+
+### Installation
+
+## Model Performance
+
+### Installation
+
 | Model | Test Accuracy | CV Mean | CV Std |
-|-------|---------------|---------|--------|
+
+|-------|---------------|---------|--------|1. **Clone the repository**
+
 | Random Forest | 85.6% | 86.6% | ±1.7% |
-| Extra Trees | 85.6% | 86.6% | ±1.2% |
+
+| Extra Trees | 85.6% | 86.6% | ±1.2% |```bash1. **Clone the repository**
+
 | **Ensemble** | **85.9%** | **86.6%** | **±1.5%** |
+
+git clone https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-.git```bash
 
 ## Usage
 
+cd Exoplanet-Classifier-NASA-KOI-K2-TESS-git clone https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-.git
+
 ### Web Interface Features
 
+```cd Exoplanet-Classifier-NASA-KOI-K2-TESS-
+
 **Single Classification:**
-- Real-time exoplanet classification
+
+- Real-time exoplanet classification```
+
 - Interactive parameter input
-- Confidence visualization  
+
+- Confidence visualization  2. **Install Python dependencies**
+
 - Habitability assessment
 
+```bash2. **Install Python dependencies**
+
 **Batch Processing:**
-- CSV file upload support
+
+- CSV file upload supportpip install -r requirements.txt```bash
+
 - Bulk processing capabilities
-- Results download functionality
+
+- Results download functionality```pip install -r requirements.txt
+
 - Statistical summaries
 
+```
+
 **Model Analytics:**
-- Performance metrics dashboard
+
+- Performance metrics dashboard3. **Start the application**
+
 - Feature importance analysis  
-- Smart AI model selection
+
+- Smart AI model selection```bash3. **Start the application**
+
 - System status monitoring
+
+python start_app.py```bash
 
 ### API Endpoints
 
+```python start_app.py
+
 **FastAPI Backend** (`http://localhost:8000`):
-- `POST /classify` - Single exoplanet classification
+
+- `POST /classify` - Single exoplanet classification```
+
 - `POST /batch-classify` - Batch processing
-- `GET /health` - System health check
+
+- `GET /health` - System health checkThe application will start with:
+
 - `GET /docs` - Interactive API documentation
+
+- **Streamlit Interface**: http://localhost:8501The application will start with:
 
 ## Project Structure
 
+- **FastAPI Backend**: http://localhost:8000  - **Streamlit Interface**: http://localhost:8501
+
 ```
-nasa-exoplanet-classifier/
+
+nasa-exoplanet-classifier/- **API Documentation**: http://localhost:8000/docs- **FastAPI Backend**: http://localhost:8000  
+
 ├── backend_api.py              # FastAPI backend server
-├── nasa_app_interface.py       # Streamlit web interface  
+
+├── nasa_app_interface.py       # Streamlit web interface  - **API Documentation**: http://localhost:8000/docs
+
 ├── nasa_smart_classifier.py    # Smart AI model selection
-├── nasa_clean_model.py         # Model training utilities
+
+├── nasa_clean_model.py         # Model training utilities### Alternative: Run Streamlit Only
+
 ├── start_app.py                # Application launcher
-├── requirements.txt            # Python dependencies
+
+├── requirements.txt            # Python dependencies### Alternative: Run Streamlit Only
+
 ├── Dockerfile                  # Container configuration
-├── frontend/                   # React frontend application
+
+├── frontend/                   # React frontend applicationFor Streamlit interface only:
+
 │   ├── App.tsx                # Main React application
-│   ├── components/            # React components
+
+│   ├── components/            # React components```bashFor Streamlit interface only:
+
 │   ├── package.json           # Node.js dependencies
-│   └── vite.config.ts         # Build configuration
+
+│   └── vite.config.ts         # Build configurationstreamlit run nasa_app_interface.py```bash
+
 └── nasa_models/               # Trained AI models
-    ├── nasa_ensemble_model.pkl
+
+    ├── nasa_ensemble_model.pkl```streamlit run nasa_app_interface.py
+
     ├── nasa_random_forest_model.pkl  
-    ├── nasa_extra_trees_model.pkl
+
+    ├── nasa_extra_trees_model.pkl```
+
     ├── nasa_scaler.pkl
-    ├── nasa_imputer.pkl
+
+    ├── nasa_imputer.pklNavigate to: `http://localhost:8501`
+
     ├── nasa_label_encoder.pkl
-    └── nasa_metadata.json
+
+    └── nasa_metadata.jsonNavigate to: `http://localhost:8501`
+
+```
+
+### Docker Deployment
+
+## NASA Missions Data
+
+### Docker Deployment
+
+**Kepler Mission:**
+
+- **Discoveries**: 2,662 confirmed exoplanets```bash
+
+- **Method**: Transit photometry
+
+- **Data**: Primary mission observations (2009-2013)docker build -t nasa-exoplanet-classifier .```bash
+
+
+
+**K2 Mission:**  docker run -p 8000:8000 nasa-exoplanet-classifierdocker build -t nasa-exoplanet-classifier .
+
+- **Extension**: Of Kepler mission
+
+- **Discoveries**: 500+ additional exoplanets```docker run -p 8000:8000 nasa-exoplanet-classifier
+
+- **Innovation**: New observing strategy (2014-2018)
+
+```
+
+**TESS Mission:**
+
+- **Scope**: All-sky survey## Architecture
+
+- **Status**: Currently active (2018-present)
+
+- **Discoveries**: 1000+ confirmed exoplanets and growing## Architecture
+
+
+
+## Detection Method### Full Stack Application
+
+
+
+Our AI system focuses on **transit photometry analysis**:### Full Stack Application
+
+
+
+1. **Light Curve Analysis**: Detecting periodic dimming patternsOur solution uses a modern full-stack architecture:
+
+2. **False Positive Filtering**: Distinguishing real planets from noise
+
+3. **Parameter Extraction**: Deriving physical properties from signalsOur solution uses a modern full-stack architecture:
+
+4. **Habitability Assessment**: Evaluating potential for life
+
+**Frontend (React + TypeScript)**
+
+### Classification Categories
+
+- Modern UI with space-themed design**Frontend (React + TypeScript)**
+
+- **CONFIRMED**: Verified exoplanets with high confidence (>95%)
+
+- **CANDIDATE**: Promising signals requiring further verification  - Real-time classification interface- Modern UI with space-themed design
+
+- **FALSE POSITIVE**: Instrumental artifacts or stellar activity
+
+- Interactive parameter inputs- Real-time classification interface
+
+### Key Parameters
+
+- Batch processing capabilities- Interactive parameter inputs
+
+| Parameter | Symbol | Description | Units |
+
+|-----------|---------|-------------|--------|- Results visualization- Batch processing capabilities
+
+| Orbital Period | P | Time for one complete orbit | days |
+
+| Planet Radius | Rp | Radius relative to Earth | Earth radii |- Results visualization
+
+| Equilibrium Temp | Teq | Estimated surface temperature | Kelvin |
+
+| Insolation Flux | S | Stellar energy received | Earth flux |**Backend (FastAPI + Python)**  
+
+| Stellar Radius | Rs | Host star radius | Solar radii |
+
+| Impact Parameter | b | Transit geometry | dimensionless |- RESTful API endpoints**Backend (FastAPI + Python)**  
+
+
+
+## Code Examples- Smart AI model selection- RESTful API endpoints
+
+
+
+### Single Classification- Real-time predictions- Smart AI model selection
+
+
+
+```python- Batch processing support- Real-time predictions
+
+from nasa_smart_classifier import SmartNASAExoplanetClassifier
+
+- Automatic API documentation- Batch processing support
+
+# Initialize classifier
+
+classifier = SmartNASAExoplanetClassifier()- Automatic API documentation
+
+
+
+# Input exoplanet parameters### AI Model Ensemble
+
+input_data = {
+
+    'koi_period': 365.25,      # Earth-like orbital period### AI Model Ensemble
+
+    'koi_prad': 1.0,           # Earth-size radius
+
+    'koi_teq': 288.0,          # Habitable zone temperature```python
+
+    'koi_insol': 1.0,          # Earth-like stellar flux
+
+    'koi_srad': 1.0,           # Sun-like starNASA AI Ensemble Architecture:```python
+
+    'koi_slogg': 4.5           # Solar surface gravity
+
+}├── Random Forest Classifier (200 trees)NASA AI Ensemble Architecture:
+
+
+
+# Classify exoplanet├── Extra Trees Classifier (200 trees)  ├── Random Forest Classifier (200 trees)
+
+result = classifier.predict(input_data)
+
+print(f"Classification: {result['prediction']}")└── Voting Classifier (Soft voting)├── Extra Trees Classifier (200 trees)  
+
+print(f"Confidence: {result['confidence']:.1%}")
+
+``````└── Voting Classifier (Soft voting)
+
+
+
+### Batch Processing```
+
+
+
+```python**Advanced Feature Engineering:**
+
+import pandas as pd
+
+from backend_api import process_batch_classification- **Planetary Mass Proxy**: Mass-radius relationship analysis**Advanced Feature Engineering:**
+
+
+
+# Load candidate data- **Temperature Ratios**: Planet/stellar temperature comparison  - **Planetary Mass Proxy**: Mass-radius relationship analysis
+
+df = pd.read_csv('exoplanet_candidates.csv')
+
+- **Orbital Velocity**: Derived from period and distance- **Temperature Ratios**: Planet/stellar temperature comparison  
+
+# Process all candidates
+
+results = process_batch_classification(df)- **Habitability Indicators**: Temperature-based life potential- **Orbital Velocity**: Derived from period and distance
+
+
+
+# Save results- **Transit Depth**: Detection difficulty assessment- **Habitability Indicators**: Temperature-based life potential
+
+results.to_csv('classified_results.csv', index=False)
+
+print(f"Processed {len(results)} candidates")- **Transit Depth**: Detection difficulty assessment
+
+```
+
+### Performance Metrics
+
+## Development
+
+### Performance Metrics
+
+### Running in Development Mode
+
+| Model | Test Accuracy | CV Mean | CV Std |
+
+1. **Backend Development**:
+
+```bash|-------|---------------|---------|--------|| Model | Test Accuracy | CV Mean | CV Std |
+
+# Start FastAPI with hot reload
+
+uvicorn backend_api:app --reload --host 0.0.0.0 --port 8000| Random Forest | 85.6% | 86.6% | ±1.7% ||-------|---------------|---------|--------|
+
+```
+
+| Extra Trees | 85.6% | 86.6% | ±1.2% || Random Forest | 85.6% | 86.6% | ±1.7% |
+
+2. **Frontend Development**:
+
+```bash| **Ensemble** | **85.9%** | **86.6%** | **±1.5%** || Extra Trees | 85.6% | 86.6% | ±1.2% |
+
+cd frontend
+
+npm install| **Ensemble** | **85.9%** | **86.6%** | **±1.5%** |
+
+npm run dev
+
+```## Usage
+
+
+
+3. **Streamlit Development**:## Usage
+
+```bash
+
+streamlit run nasa_app_interface.py --server.port 8501### Web Interface Features
+
+```
+
+### Web Interface Features
+
+### Testing
+
+**Single Classification:**
+
+```bash
+
+# Run model validation- Real-time exoplanet classification**Single Classification:**
+
+python nasa_clean_model.py
+
+- Interactive parameter input- Real-time exoplanet classification
+
+# Test API endpoints  
+
+curl -X POST "http://localhost:8000/classify" \- Confidence visualization  - Interactive parameter input
+
+     -H "Content-Type: application/json" \
+
+     -d '{"koi_period": 365.25, "koi_prad": 1.0}'- Habitability assessment- Confidence visualization  
+
+```
+
+- Habitability assessment
+
+## Contributing
+
+**Batch Processing:**
+
+We welcome contributions to enhance the NASA Exoplanet Hunter!
+
+- CSV file upload support**Batch Processing:**
+
+**Areas for Contribution:**
+
+- Additional NASA datasets integration- Bulk processing capabilities- CSV file upload support
+
+- Advanced AI model architectures  
+
+- UI/UX improvements- Results download functionality- Bulk processing capabilities
+
+- Visualization enhancements
+
+- New feature engineering approaches- Statistical summaries- Results download functionality
+
+
+
+**Development Process:**- Statistical summaries
+
+1. Fork the repository
+
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)**Model Analytics:**
+
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+
+4. Push to the branch (`git push origin feature/AmazingFeature`)- Performance metrics dashboard**Model Analytics:**
+
+5. Open a Pull Request
+
+- Feature importance analysis  - Performance metrics dashboard
+
+## NASA Space Apps Challenge 2025
+
+- Smart AI model selection- Feature importance analysis  
+
+### Challenge Requirements
+
+- System status monitoring- Smart AI model selection
+
+- [x] **AI/ML Implementation**: Advanced ensemble models with 85.9% accuracy
+
+- [x] **NASA Data Integration**: Kepler, K2, and TESS mission datasets  - System status monitoring
+
+- [x] **Real-world Application**: Production-ready full-stack system
+
+- [x] **Innovation**: Smart model selection and feature engineering### API Endpoints
+
+- [x] **User Interface**: Interactive web application with batch processing
+
+- [x] **Documentation**: Comprehensive setup and usage guides### API Endpoints
+
+
+
+### Technical Achievements**FastAPI Backend** (`http://localhost:8000`):
+
+
+
+- **High Accuracy**: 85.9% classification accuracy with ensemble methods- `POST /classify` - Single exoplanet classification**FastAPI Backend** (`http://localhost:8000`):
+
+- **Real-time Processing**: Sub-second prediction response times
+
+- **Scalable Architecture**: Handles single and batch classifications- `POST /batch-classify` - Batch processing- `POST /classify` - Single exoplanet classification
+
+- **Professional Interface**: Modern React frontend with TypeScript
+
+- **API-First Design**: RESTful backend with automatic documentation- `GET /health` - System health check- `POST /batch-classify` - Batch processing
+
+- **Containerized Deployment**: Docker support for easy deployment
+
+- `GET /docs` - Interactive API documentation- `GET /health` - System health check
+
+## Impact
+
+- `GET /docs` - Interactive API documentation
+
+**Scientific Contribution:**
+
+- **Democratizing Discovery**: Professional-grade tools accessible to all researchers## Project Structure
+
+- **Accelerating Science**: Automated classification pipeline for rapid analysis
+
+- **Educational Value**: Interactive learning platform for students and educators## Project Structure
+
+- **Research Excellence**: State-of-the-art AI system for exoplanet detection
+
+```
+
+## License
+
+nasa-exoplanet-classifier/```
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+├── backend_api.py              # FastAPI backend servernasa-exoplanet-classifier/
+
+## Acknowledgments
+
+├── nasa_app_interface.py       # Streamlit web interface  ├── backend_api.py              # FastAPI backend server
+
+- **NASA Space Apps Challenge 2025**
+
+- **NASA Exoplanet Archive** - Primary dataset source├── nasa_smart_classifier.py    # Smart AI model selection├── nasa_app_interface.py       # Streamlit web interface  
+
+- **Kepler/K2/TESS Mission Teams** - Space telescope data
+
+- **Open Source Community** - Framework and library contributors├── nasa_clean_model.py         # Model training utilities├── nasa_smart_classifier.py    # Smart AI model selection
+
+
+
+## Live Demo├── start_app.py                # Application launcher├── nasa_clean_model.py         # Model training utilities
+
+
+
+**Experience the NASA Exoplanet Classifier:**├── requirements.txt            # Python dependencies├── start_app.py                # Application launcher
+
+**https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier**
+
+├── Dockerfile                  # Container configuration├── requirements.txt            # Python dependencies
+
+---
+
+├── frontend/                   # React frontend application├── Dockerfile                  # Container configuration
+
+<div align="center">
+
+│   ├── App.tsx                # Main React application├── frontend/                   # React frontend application
+
+**Built for NASA Space Apps Challenge 2025**
+
+*"A World Away: Hunting for Exoplanets with AI"*│   ├── components/            # React components│   ├── App.tsx                # Main React application
+
+
+
+**Discover worlds beyond our solar system with the power of artificial intelligence**│   ├── package.json           # Node.js dependencies│   ├── components/            # React components
+
+
+
+</div>│   └── vite.config.ts         # Build configuration│   ├── package.json           # Node.js dependencies
+
+└── nasa_models/               # Trained AI models│   └── vite.config.ts         # Build configuration
+
+    ├── nasa_ensemble_model.pkl└── nasa_models/               # Trained AI models
+
+    ├── nasa_random_forest_model.pkl      ├── nasa_ensemble_model.pkl
+
+    ├── nasa_extra_trees_model.pkl    ├── nasa_random_forest_model.pkl  
+
+    ├── nasa_scaler.pkl    ├── nasa_extra_trees_model.pkl
+
+    ├── nasa_imputer.pkl    ├── nasa_scaler.pkl
+
+    ├── nasa_label_encoder.pkl    ├── nasa_imputer.pkl
+
+    └── nasa_metadata.json    ├── nasa_label_encoder.pkl
+
+```    └── nasa_metadata.json
+
 ```
 
 ## NASA Missions Data
 
+## NASA Missions Data
+
 **Kepler Mission:**
-- **Discoveries**: 2,662 confirmed exoplanets
-- **Method**: Transit photometry
+
+- **Discoveries**: 2,662 confirmed exoplanets**Kepler Mission:**
+
+- **Method**: Transit photometry- **Discoveries**: 2,662 confirmed exoplanets
+
+- **Data**: Primary mission observations (2009-2013)- **Method**: Transit photometry
+
 - **Data**: Primary mission observations (2009-2013)
 
 **K2 Mission:**  
-- **Extension**: Of Kepler mission
-- **Discoveries**: 500+ additional exoplanets
+
+- **Extension**: Of Kepler mission**K2 Mission:**  
+
+- **Discoveries**: 500+ additional exoplanets- **Extension**: Of Kepler mission
+
+- **Innovation**: New observing strategy (2014-2018)- **Discoveries**: 500+ additional exoplanets
+
 - **Innovation**: New observing strategy (2014-2018)
 
 **TESS Mission:**
-- **Scope**: All-sky survey
-- **Discoveries**: 7,000+ candidates
+
+- **Scope**: All-sky survey**TESS Mission:**
+
+- **Status**: Currently active (2018-present)- **Scope**: All-sky survey
+
+- **Discoveries**: 1000+ confirmed exoplanets and growing- **Discoveries**: 7,000+ candidates
+
 - **Status**: Currently active (2018-present)
-- **Discoveries**: 1000+ confirmed exoplanets and growing
 
-## Detection Method
+## Detection Method- **Discoveries**: 1000+ confirmed exoplanets and growing
 
-Our AI system focuses on **transit photometry analysis**:
 
-1. **Light Curve Analysis**: Detecting periodic dimming patterns
+
+Our AI system focuses on **transit photometry analysis**:## Detection Method
+
+
+
+1. **Light Curve Analysis**: Detecting periodic dimming patternsOur AI system focuses on **transit photometry analysis**:
+
 2. **False Positive Filtering**: Distinguishing real planets from noise
+
+3. **Parameter Extraction**: Deriving physical properties from signals1. **Light Curve Analysis**: Detecting periodic dimming patterns
+
+4. **Habitability Assessment**: Evaluating potential for life2. **False Positive Filtering**: Distinguishing real planets from noise
+
 3. **Parameter Extraction**: Deriving physical properties from signals
-4. **Habitability Assessment**: Evaluating potential for life
 
-### Classification Categories
+### Classification Categories4. **Habitability Assessment**: Evaluating potential for life
 
-- **CONFIRMED**: Verified exoplanets with high confidence (>95%)
+
+
+- **CONFIRMED**: Verified exoplanets with high confidence (>95%)### Classification Categories
+
 - **CANDIDATE**: Promising signals requiring further verification  
-- **FALSE POSITIVE**: Instrumental artifacts or stellar activity
 
-### Key Parameters
+- **FALSE POSITIVE**: Instrumental artifacts or stellar activity- **CONFIRMED**: Verified exoplanets with high confidence (>95%)
 
-| Parameter | Symbol | Description | Units |
+- **CANDIDATE**: Promising signals requiring further verification  
+
+### Key Parameters- **FALSE POSITIVE**: Instrumental artifacts or stellar activity
+
+
+
+| Parameter | Symbol | Description | Units |### Key Parameters
+
 |-----------|---------|-------------|--------|
-| Orbital Period | P | Time for one complete orbit | days |
-| Planet Radius | Rp | Radius relative to Earth | Earth radii |
-| Equilibrium Temp | Teq | Estimated surface temperature | Kelvin |
-| Insolation Flux | S | Stellar energy received | Earth flux |
+
+| Orbital Period | P | Time for one complete orbit | days || Parameter | Symbol | Description | Units |
+
+| Planet Radius | Rp | Radius relative to Earth | Earth radii ||-----------|---------|-------------|--------|
+
+| Equilibrium Temp | Teq | Estimated surface temperature | Kelvin || Orbital Period | P | Time for one complete orbit | days |
+
+| Insolation Flux | S | Stellar energy received | Earth flux || Planet Radius | Rp | Radius relative to Earth | Earth radii |
+
+| Stellar Radius | Rs | Host star radius | Solar radii || Equilibrium Temp | Teq | Estimated surface temperature | Kelvin |
+
+| Impact Parameter | b | Transit geometry | dimensionless || Insolation Flux | S | Stellar energy received | Earth flux |
+
 | Stellar Radius | Rs | Host star radius | Solar radii |
-| Impact Parameter | b | Transit geometry | dimensionless |
 
-## Code Examples
+## Code Examples| Impact Parameter | b | Transit geometry | dimensionless |
 
-### Single Classification
 
-```python
+
+### Single Classification## Code Examples
+
+
+
+```python### Single Classification
+
 from nasa_smart_classifier import SmartNASAExoplanetClassifier
 
-# Initialize classifier
+```python
+
+# Initialize classifierfrom nasa_smart_classifier import SmartNASAExoplanetClassifier
+
 classifier = SmartNASAExoplanetClassifier()
 
-# Input exoplanet parameters
+# Initialize classifier
+
+# Input exoplanet parametersclassifier = SmartNASAExoplanetClassifier()
+
 input_data = {
-    'koi_period': 365.25,      # Earth-like orbital period
-    'koi_prad': 1.0,           # Earth-size radius
-    'koi_teq': 288.0,          # Habitable zone temperature
-    'koi_insol': 1.0,          # Earth-like stellar flux
-    'koi_srad': 1.0,           # Sun-like star
+
+    'koi_period': 365.25,      # Earth-like orbital period# Input exoplanet parameters
+
+    'koi_prad': 1.0,           # Earth-size radiusinput_data = {
+
+    'koi_teq': 288.0,          # Habitable zone temperature    'koi_period': 365.25,      # Earth-like orbital period
+
+    'koi_insol': 1.0,          # Earth-like stellar flux    'koi_prad': 1.0,           # Earth-size radius
+
+    'koi_srad': 1.0,           # Sun-like star    'koi_teq': 288.0,          # Habitable zone temperature
+
+    'koi_slogg': 4.5           # Solar surface gravity    'koi_insol': 1.0,          # Earth-like stellar flux
+
+}    'koi_srad': 1.0,           # Sun-like star
+
     'koi_slogg': 4.5           # Solar surface gravity
-}
 
-# Classify exoplanet
+# Classify exoplanet}
+
 result = classifier.predict(input_data)
-print(f"Classification: {result['prediction']}")
+
+print(f"Classification: {result['prediction']}")# Classify exoplanet
+
+print(f"Confidence: {result['confidence']:.1%}")result = classifier.predict(input_data)
+
+```print(f"Classification: {result['prediction']}")
+
 print(f"Confidence: {result['confidence']:.1%}")
-```
 
-### Batch Processing
+### Batch Processing```
 
-```python
+
+
+```python### Batch Processing
+
 import pandas as pd
-from backend_api import process_batch_classification
 
-# Load candidate data
+from backend_api import process_batch_classification```python
+
+import pandas as pd
+
+# Load candidate datafrom backend_api import process_batch_classification
+
 df = pd.read_csv('exoplanet_candidates.csv')
 
-# Process all candidates
+# Load candidate data
+
+# Process all candidatesdf = pd.read_csv('exoplanet_candidates.csv')
+
 results = process_batch_classification(df)
 
-# Save results
+# Process all candidates
+
+# Save resultsresults = process_batch_classification(df)
+
 results.to_csv('classified_results.csv', index=False)
+
+print(f"Processed {len(results)} candidates")# Save results
+
+```results.to_csv('classified_results.csv', index=False)
+
 print(f"Processed {len(results)} candidates")
-```
 
-## Development
+## Development```
 
-### Running in Development Mode
 
-1. **Backend Development**:
+
+### Running in Development Mode## Development
+
+
+
+1. **Backend Development**:### Running in Development Mode
+
 ```bash
-# Start FastAPI with hot reload
+
+# Start FastAPI with hot reload1. **Backend Development**:
+
+uvicorn backend_api:app --reload --host 0.0.0.0 --port 8000```bash
+
+```# Start FastAPI with hot reload
+
 uvicorn backend_api:app --reload --host 0.0.0.0 --port 8000
-```
 
-2. **Frontend Development**:
+2. **Frontend Development**:```
+
 ```bash
-cd frontend
-npm install
+
+cd frontend2. **Frontend Development**:
+
+npm install```bash
+
+npm run devcd frontend
+
+```npm install
+
 npm run dev
-```
 
-3. **Streamlit Development**:
+3. **Streamlit Development**:```
+
 ```bash
+
+streamlit run nasa_app_interface.py --server.port 85013. **Streamlit Development**:
+
+``````bash
+
 streamlit run nasa_app_interface.py --server.port 8501
-```
 
-### Testing
+### Testing```
 
-```bash
+
+
+```bash### Testing
+
 # Run model validation
-python nasa_clean_model.py
 
-# Test API endpoints  
+python nasa_clean_model.py```bash
+
+# Run model validation
+
+# Test API endpoints  python nasa_clean_model.py
+
 curl -X POST "http://localhost:8000/classify" \
-     -H "Content-Type: application/json" \
+
+     -H "Content-Type: application/json" \# Test API endpoints  
+
+     -d '{"koi_period": 365.25, "koi_prad": 1.0}'curl -X POST "http://localhost:8000/classify" \
+
+```     -H "Content-Type: application/json" \
+
      -d '{"koi_period": 365.25, "koi_prad": 1.0}'
-```
 
-## Contributing
+## Contributing```
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+
+
+We welcome contributions to enhance the NASA Exoplanet Hunter!## Contributing
+
+
+
+**Areas for Contribution:**1. Fork the repository
+
+- Additional NASA datasets integration2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+
+- Advanced AI model architectures  3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+
+- UI/UX improvements4. Push to the branch (`git push origin feature/AmazingFeature`)
+
+- Visualization enhancements5. Open a Pull Request
+
+- New feature engineering approaches
 
 ## NASA Space Apps Challenge 2025
 
-### Challenge Requirements
+**Development Process:**
 
-- [x] **AI/ML Implementation**: Advanced ensemble models with 85.9% accuracy
-- [x] **NASA Data Integration**: Kepler, K2, and TESS mission datasets  
-- [x] **Real-world Application**: Production-ready full-stack system
+1. Fork the repository### Challenge Requirements
+
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)- [x] **AI/ML Implementation**: Advanced ensemble models with 85.9% accuracy
+
+4. Push to the branch (`git push origin feature/AmazingFeature`)- [x] **NASA Data Integration**: Kepler, K2, and TESS mission datasets  
+
+5. Open a Pull Request- [x] **Real-world Application**: Production-ready full-stack system
+
 - [x] **Innovation**: Smart model selection and feature engineering
-- [x] **User Interface**: Interactive web application with batch processing
+
+## NASA Space Apps Challenge 2025- [x] **User Interface**: Interactive web application with batch processing
+
 - [x] **Documentation**: Comprehensive setup and usage guides
+
+### Challenge Requirements
 
 ### Technical Achievements
 
-- **High Accuracy**: 85.9% classification accuracy with ensemble methods
-- **Real-time Processing**: Sub-second prediction response times
-- **Scalable Architecture**: Handles single and batch classifications
-- **Professional Interface**: Modern React frontend with TypeScript
-- **API-First Design**: RESTful backend with automatic documentation
+- [x] **AI/ML Implementation**: Advanced ensemble models with 85.9% accuracy
+
+- [x] **NASA Data Integration**: Kepler, K2, and TESS mission datasets  - **High Accuracy**: 85.9% classification accuracy with ensemble methods
+
+- [x] **Real-world Application**: Production-ready full-stack system- **Real-time Processing**: Sub-second prediction response times
+
+- [x] **Innovation**: Smart model selection and feature engineering- **Scalable Architecture**: Handles single and batch classifications
+
+- [x] **User Interface**: Interactive web application with batch processing- **Professional Interface**: Modern React frontend with TypeScript
+
+- [x] **Documentation**: Comprehensive setup and usage guides- **API-First Design**: RESTful backend with automatic documentation
+
 - **Containerized Deployment**: Docker support for easy deployment
+
+### Technical Achievements
+
+## Contributing
+
+- **High Accuracy**: 85.9% classification accuracy with ensemble methods
+
+- **Real-time Processing**: Sub-second prediction response timesWe welcome contributions to enhance the NASA Exoplanet Hunter!
+
+- **Scalable Architecture**: Handles single and batch classifications
+
+- **Professional Interface**: Modern React frontend with TypeScript**Areas for Contribution:**
+
+- **API-First Design**: RESTful backend with automatic documentation- Additional NASA datasets integration
+
+- **Containerized Deployment**: Docker support for easy deployment- Advanced AI model architectures  
+
+- UI/UX improvements
+
+## Impact- Visualization enhancements
+
+- New feature engineering approaches
+
+**Scientific Contribution:**
+
+- **Democratizing Discovery**: Professional-grade tools accessible to all researchers**Development Process:**
+
+- **Accelerating Science**: Automated classification pipeline for rapid analysis1. Fork the repository
+
+- **Educational Value**: Interactive learning platform for students and educators2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+
+- **Research Excellence**: State-of-the-art AI system for exoplanet detection3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+
+## License5. Open a Pull Request
+
+
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.## Impact
+
+
+
+## Acknowledgments**Scientific Contribution:**
+
+- **Democratizing Discovery**: Professional-grade tools accessible to all researchers
+
+- **NASA Space Apps Challenge 2025**- **Accelerating Science**: Automated classification pipeline for rapid analysis
+
+- **NASA Exoplanet Archive** - Primary dataset source- **Educational Value**: Interactive learning platform for students and educators
+
+- **Kepler/K2/TESS Mission Teams** - Space telescope data- **Research Excellence**: State-of-the-art AI system for exoplanet detection
+
+- **Open Source Community** - Framework and library contributors
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- NASA Space Apps Challenge 2025
-- NASA Exoplanet Archive
-- Kepler/K2/TESS Mission Teams  
-- Open source community contributors
-
 ## Live Demo
 
-Experience the NASA Exoplanet Classifier: https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
+**Experience the NASA Exoplanet Classifier:**
 
-**Built for NASA Space Apps Challenge 2025 - "A World Away: Hunting for Exoplanets with AI"**
+**https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier**## Acknowledgments
 
-Discover worlds beyond our solar system with the power of artificial intelligence.
-- [x] **Scalability**: Batch processing capabilities
 
-- ** Democratizing Discovery**: Web interface for researchers
-- ** Accelerating Science**: Automated classification pipeline
-- ** Educational Value**: Interactive learning platform
-- ** Research Tool**: Professional-grade analysis system
 
----
+---- **NASA Space Apps Challenge 2025**
 
-We welcome contributions to enhance the NASA Exoplanet Hunter!
+- **NASA Exoplanet Archive** - Primary dataset source
 
-- Additional NASA datasets integration
-- Advanced AI model architectures
-- UI/UX improvements
-- Visualization enhancements
-- New feature engineering approaches
+<div align="center">- **Kepler/K2/TESS Mission Teams** - Space telescope data
 
----
+- **Open Source Community** - Framework and library contributors
 
-This project is licensed under the MIT License.
+**Built for NASA Space Apps Challenge 2025**
 
----
+*"A World Away: Hunting for Exoplanets with AI"*## Live Demo
 
-- **NASA** for providing incredible exoplanet datasets
-- **NASA Space Apps Challenge** for inspiring global innovation
-- **Kepler/K2/TESS Teams** for groundbreaking space missions
-- **Open Source Community** for amazing tools and libraries
 
----
 
-- **NASA Space Apps**: [spaceappschallenge.org](https://www.spaceappschallenge.org)
-- **NASA Exoplanet Archive**: [exoplanetarchive.ipac.caltech.edu](https://exoplanetarchive.ipac.caltech.edu)
-- **GitHub Repository**: [github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-](https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-)
+**Discover worlds beyond our solar system with the power of artificial intelligence****Experience the NASA Exoplanet Classifier:**
 
+**https://huggingface.co/spaces/ParthKoshti/Nasa-Exoplanet-Classifier**
+
+</div>
 ---
 
 <div align="center">
 
-**Advancing humanity's search for worlds beyond our solar system**
+**Built for NASA Space Apps Challenge 2025**
+*"A World Away: Hunting for Exoplanets with AI"*
 
-![NASA](https://img.shields.io/badge/NASA-Space%20Apps%20Challenge-blue)
-![AI](https://img.shields.io/badge/AI-Exoplanet%20Hunter-orange)
-![Mission](https://img.shields.io/badge/Mission-A%20World%20Away-green)
+**Discover worlds beyond our solar system with the power of artificial intelligence**
 
-** Ready for NASA Space Apps Challenge 2025 Submission! **
+</div>
 
-</div>ation System
+
 **NASA Space Apps Challenge 2025 - "A World Away: Hunting for Exoplanets with AI"**
 
 > **Enterprise-grade machine learning solution** for classifying astronomical objects as confirmed exoplanets, planet candidates, or false positives using data from NASA's Kepler, K2, and TESS missions.
