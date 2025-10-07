@@ -1,80 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exoplanet Classifier</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      /* Custom scrollbar for a better dark mode aesthetic */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #1a202c; /* Equivalent to dark gray */
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #4a5568; /* Equivalent to gray */
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #718096; /* Lighter gray on hover */
-      }
-      /* Hide arrows from number inputs */
-      /* Chrome, Safari, Edge, Opera */
-      input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-      /* Firefox */
-      input[type=number] {
-        -moz-appearance: textfield;
-      }
-      /* Loading animation for the classification button */
-      @keyframes bg-scan {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-      }
-      .animate-bg-scan {
-        background-image: linear-gradient(
-          90deg,
-          transparent 25%,
-          rgba(255, 255, 255, 0.15) 50%,
-          transparent 75%
-        );
-        background-size: 200% 100%;
-        animation: bg-scan 1.5s linear infinite;
-      }
-       /* New pulse glow animation */
-      @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 10px 2px rgba(132, 0, 255, 0.4); }
-        50% { box-shadow: 0 0 16px 5px rgba(132, 0, 255, 0.6); }
-      }
-      .animate-pulse-glow {
-        animation: pulse-glow 2.5s ease-in-out infinite;
-      }
-    </style>
-  <script type="importmap">
+ <head>
+ <meta charset="UTF-8" />
+ <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Exoplanet Classifier</title>
+ <script src="https://cdn.tailwindcss.com"></script>
+ <style>
+ html {
+ scroll-behavior: smooth;
+ }
+
+ ::-webkit-scrollbar {
+ width: 8px;
+ }
+ ::-webkit-scrollbar-track {
+ background:
+ }
+ ::-webkit-scrollbar-thumb {
+ background:
+ border-radius: 4px;
+ }
+ ::-webkit-scrollbar-thumb:hover {
+ background:
+ }
+
+ input::-webkit-outer-spin-button,
+ input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+ }
+
+ input[type=number] {
+ -moz-appearance: textfield;
+ }
+
+ @keyframes bg-scan {
+ 0% { background-position: 200% 0; }
+ 100% { background-position: -200% 0; }
+ }
+ .animate-bg-scan {
+ background-image: linear-gradient(
+ 90deg,
+ transparent 25%,
+ rgba(255, 255, 255, 0.15) 50%,
+ transparent 75%
+ );
+ background-size: 200% 100%;
+ animation: bg-scan 1.5s linear infinite;
+ }
+
+ @keyframes pulse-glow {
+ 0%, 100% { box-shadow: 0 0 10px 2px rgba(132, 0, 255, 0.4); }
+ 50% { box-shadow: 0 0 16px 5px rgba(132, 0, 255, 0.6); }
+ }
+ .animate-pulse-glow {
+ animation: pulse-glow 2.5s ease-in-out infinite;
+ }
+ </style>
+ <script type="importmap">
 {
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.1.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
-    "ogl": "https://esm.sh/ogl@0.0.109",
-    "gsap": "https://esm.sh/gsap@3.12.5"
-  }
+ "imports": {
+ "react": "https://aistudiocdn.com/react@^19.1.1",
+ "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+ "react/": "https://aistudiocdn.com/react@^19.1.1/",
+ "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+ "ogl": "https://esm.sh/ogl@0.0.109",
+ "gsap": "https://esm.sh/gsap@3.12.5"
+ }
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="text-slate-300" style="background-color: #000000;">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+ <body class="text-slate-300" style="background-color:
+ <div id="root"></div>
+ <script type="module" src="/index.tsx"></script>
+ </body>
 </html>

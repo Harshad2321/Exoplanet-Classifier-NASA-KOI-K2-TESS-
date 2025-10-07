@@ -1,24 +1,17 @@
-# NASA Space Apps Challenge 2025: Exoplanet Hunter AI
-# "A World Away: Hunting for Exoplanets with AI"
 
-# Core AI and Data Science
+
 numpy>=1.21.0
 pandas>=1.3.0
 scikit-learn>=1.0.0
 joblib>=1.0.0
 
-# FastAPI Backend
 fastapi>=0.104.0
 uvicorn>=0.24.0
 python-multipart>=0.0.6
 
-# Visualization
 plotly>=5.0.0
 matplotlib>=3.5.0
 seaborn>=0.11.0
 
-# Web Interface (optional - keeping for compatibility)
 streamlit>=1.28.0
 
-# Optional: For enhanced performance
-# numba>=0.56.0

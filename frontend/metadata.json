@@ -1,5 +1,5 @@
 {
-  "name": "Exoplanet Classifier",
-  "description": "An application that uses AI to classify potential exoplanets based on astronomical data. Users can input various parameters to determine if a celestial object is a confirmed exoplanet, a planetary candidate, or a false positive.",
-  "requestFramePermissions": []
+ "name": "Exoplanet Classifier",
+ "description": "An application that uses AI to classify potential exoplanets based on astronomical data. Users can input various parameters to determine if a celestial object is a confirmed exoplanet, a planetary candidate, or a false positive.",
+ "requestFramePermissions": []
 }

@@ -1,6 +1,0 @@
-kepoi_name,koi_period,koi_prad,koi_srad,koi_steff,koi_slogg,koi_smet,ra,dec,koi_kepmag
-Earth-like,365.25,1.0,1.0,5778,4.44,0.0,290.0,44.0,12.5
-Hot-Jupiter,3.5,11.2,1.2,6200,4.3,0.1,291.0,45.0,11.0
-Super-Earth,10.0,1.8,1.1,5900,4.4,0.0,289.5,43.5,13.2
-Mini-Neptune,20.5,3.5,0.95,5600,4.48,-0.1,290.5,44.5,12.8
-Rocky-Planet,5.2,0.8,0.9,5200,4.5,-0.2,291.5,45.5,14.0
